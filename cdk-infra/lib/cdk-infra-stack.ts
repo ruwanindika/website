@@ -1,5 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import {Bucket, BucketAccessControl} from "aws-cdk-lib/aws-s3";
+
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class CdkInfraStack extends cdk.Stack {
@@ -12,5 +14,10 @@ export class CdkInfraStack extends cdk.Stack {
     // const queue = new sqs.Queue(this, 'CdkInfraQueue', {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
+
+    const bucket = new Bucket(this, 'Bucket', {
+      accessControl: BucketAccessControl.PRIVATE,
+    })
+    
   }
 }
