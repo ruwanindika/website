@@ -8,5 +8,6 @@ deploy-prod:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   script:
     - npm -v 
+    - uname -a
     - echo "deploys something from the $CI_COMMIT_BRANCH branch."
   environment: production
