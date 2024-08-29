@@ -12,7 +12,6 @@ deploy-prod:
     - npm install typescript --save-dev
     - npm install -g ts-node
     - npm install
-    - npm run build
     - apk add --no-cache aws-cli
     - npm install -g aws-cdk 
     - cd cdk-infra
