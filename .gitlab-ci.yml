@@ -7,9 +7,9 @@ deploy-prod:
   stage: deploy
   image: node:lts-alpine
   script:
+    - npm -g install typescript
     - apk add --no-cache aws-cli
     - npm install -g aws-cdk 
-    - pwd
     - cd cdk-infra
     - cdk bootstrap
     - cdk deploy --require-approval never
