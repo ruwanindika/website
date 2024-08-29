@@ -5,9 +5,11 @@ build-job:
 
 deploy-prod:
   stage: deploy
-  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  image: node:lts-alpine
   script:
-    - npm -v 
-    - uname -a
-    - echo "deploys something from the $CI_COMMIT_BRANCH branch."
+    - apk add --no-cache aws-cli
+    - npm install -g aws-cdk 
+    - npm install 
+    - cdk bootstrap
+    - cdk deploy --require-approval never
   environment: production
