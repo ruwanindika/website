@@ -9,6 +9,8 @@ deploy-prod:
   script:
     - apk add --no-cache aws-cli
     - npm install -g aws-cdk 
+    - pwd
+    - cd cdk-infra
     - cdk bootstrap
     - cdk deploy --require-approval never
   environment: production
