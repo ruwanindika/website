@@ -8,6 +8,7 @@ deploy-prod:
   image: node:lts-alpine
   script:
     - npm -g install typescript
+    - npm install -g ts-node
     - apk add --no-cache aws-cli
     - npm install -g aws-cdk 
     - cd cdk-infra
