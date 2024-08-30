@@ -1,6 +1,8 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import {Bucket, BucketAccessControl} from "aws-cdk-lib/aws-s3";
+import {BucketDeployment, Source} from "aws-cdk-lib/aws-s3-deployment";
+import * as path from "path";
 
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
@@ -17,6 +19,11 @@ export class CdkInfraStack extends cdk.Stack {
 
     const bucket = new Bucket(this, 'Bucket', {
       accessControl: BucketAccessControl.PRIVATE,
+    })
+
+    new BucketDeployment(this, 'BucketDeployment', {
+      destinationBucket: bucket,
+      sources: [Source.asset(path.resolve(__dirname, '../../dist'))]
     })
     
   }
