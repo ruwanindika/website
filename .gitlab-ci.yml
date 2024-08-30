@@ -7,9 +7,9 @@ deploy-prod:
   stage: deploy
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   before_script:
-    - curl -fsSL https://fnm.vercel.app/install | bash
-    - source /root/.bashrc
-    - /root/.local/share/fnm/fnm use --install-if-missing 18
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+    - source .bashrc
+    - nvm install 18
   script:
     - npm -g install typescript
     - npm install -g aws-cdk
