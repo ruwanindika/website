@@ -5,7 +5,7 @@ build-job:
 
 deploy-prod:
   stage: deploy
-  image: node:16.0.0
+  image: node:18-alpine
   script:
     - npm -g install typescript
     - npm install -g aws-cdk
