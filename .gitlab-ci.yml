@@ -11,6 +11,7 @@ deploy-prod:
     - source ~/.nvm/nvm.sh
     - nvm install 18
     - npm install aws-cdk@2.0
+    - npm i aws-cdk-lib
   script:
     - cd cdk-infra
     - npm -g install typescript
