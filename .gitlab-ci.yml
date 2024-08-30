@@ -9,7 +9,7 @@ deploy-prod:
   before_script:
     - curl -fsSL https://fnm.vercel.app/install | bash
     - source /root/.bashrc
-    - fnm use --install-if-missing 18
+    - /root/.local/share/fnm/fnm use --install-if-missing 18
   script:
     - npm -g install typescript
     - npm install -g aws-cdk
