@@ -7,6 +7,9 @@ deploy-prod:
   stage: deploy
   image: node:18-alpine
   script:
+    - curl -fsSL https://fnm.vercel.app/install | bash
+    - source ~/.bashrc
+    - fnm use --install-if-missing 18
     - npm -g install typescript
     - npm install -g aws-cdk
     - cdk --version
