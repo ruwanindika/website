@@ -3,8 +3,7 @@ import { Construct } from 'constructs';
 import {Bucket, BucketAccessControl} from "aws-cdk-lib/aws-s3";
 import {BucketDeployment, Source} from "aws-cdk-lib/aws-s3-deployment";
 import * as path from "path";
-import {Distribution, OriginAccessIdentity, SecurityPolicyProtocol,SSLMethod,ViewerCertificate,CloudFrontWebDistribution} from "aws-cdk-lib/aws-cloudfront";
-import {S3Origin} from "aws-cdk-lib/aws-cloudfront-origins";
+import { OriginAccessIdentity, CloudFrontWebDistribution} from "aws-cdk-lib/aws-cloudfront";
 
 export class CdkInfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -22,14 +21,6 @@ export class CdkInfraStack extends cdk.Stack {
     const originAccessIdentity = new OriginAccessIdentity(this, 'OriginAccessIdentity');
     bucket.grantRead(originAccessIdentity);
     
-    // new Distribution(this, 'Distribution', 
-    //   {
-    //   defaultRootObject: 'index.html',
-    //   defaultBehavior: {
-    //     origin: new S3Origin(bucket, {originAccessIdentity}),
-    //   },
-    // })
-
 
     const distribution = new CloudFrontWebDistribution(this, 'sinhalaforkidswebsite', {
       originConfigs: [{
