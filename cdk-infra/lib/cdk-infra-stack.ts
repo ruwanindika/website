@@ -36,14 +36,14 @@ export class CdkInfraStack extends cdk.Stack {
         s3OriginSource: { s3BucketSource: bucket ,originAccessIdentity:originAccessIdentity},
         behaviors: [{ isDefaultBehavior: true }],
       }],
-      viewerCertificate: ViewerCertificate.fromIamCertificate(
-        'cc7331bc-50a6-4183-b87b-44f568eae2b7',
-        {
-          aliases: ['sinhalaforkids.com','www.sinhalaforkids.com'],
-          // securityPolicy: SecurityPolicyProtocol.SSL_V3, // default
-          // sslMethod: SSLMethod.SNI, // default
-        },
-      ),
+      viewerCertificate: {
+        aliases: ['sinhalaforkids.com','www.sinhalaforkids.com'],
+        props: {
+          acmCertificateArn: 'arn:aws:acm:us-east-1:161580273020:certificate/cc7331bc-50a6-4183-b87b-44f568eae2b7',
+          // sslSupportMethod: 'sni-only',
+          // minimumProtocolVersion: 'TLSv1.1_2016',
+        }
+      },
     });
 
   }
