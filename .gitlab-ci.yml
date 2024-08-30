@@ -10,12 +10,11 @@ deploy-prod:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
     - source ~/.nvm/nvm.sh
     - nvm install 18
-    - npm --prefix cdk-infra/package.json install
-    - npm --prefix cdk-infra/package.json run build
   script:
+    - cd cdk-infra
+    - npm i @aws-cdk/aws-ec2
     - npm -g install typescript
     - npm install -g aws-cdk
-    - cd cdk-infra
     - cdk bootstrap
     - cdk deploy --require-approval never
   environment: production
