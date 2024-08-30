@@ -40,8 +40,8 @@ export class CdkInfraStack extends cdk.Stack {
         aliases: ['sinhalaforkids.com','www.sinhalaforkids.com'],
         props: {
           acmCertificateArn: 'arn:aws:acm:us-east-1:161580273020:certificate/cc7331bc-50a6-4183-b87b-44f568eae2b7',
-          // sslSupportMethod: 'sni-only',
-          // minimumProtocolVersion: 'TLSv1.1_2016',
+          sslSupportMethod: 'sni-only',
+          minimumProtocolVersion: 'TLSv1.2_2021',
         }
       },
     });
