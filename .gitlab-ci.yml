@@ -8,7 +8,6 @@ deploy-prod:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   before_script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-    - source .bashrc
     - nvm install 18
   script:
     - npm -g install typescript
