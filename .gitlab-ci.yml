@@ -8,7 +8,7 @@ deploy-prod:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   before_script:
     - curl -fsSL https://fnm.vercel.app/install | bash
-    - source ~/.bashrc
+    - source /root/.bashrc
     - fnm use --install-if-missing 18
   script:
     - npm -g install typescript
