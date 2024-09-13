@@ -3,7 +3,7 @@ build-job:
   script:
     - echo "building ..."
 
-build-job:
+e2e-testing:
   stage: test
   script:
     - echo "Testing ... "
