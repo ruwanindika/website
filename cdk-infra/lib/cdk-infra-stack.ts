@@ -13,10 +13,7 @@ export class CdkInfraStack extends cdk.Stack {
       accessControl: BucketAccessControl.PRIVATE,
     })
 
-    new BucketDeployment(this, 'BucketDeployment', { 
-      destinationBucket: bucket,
-      sources: [Source.asset(path.resolve(__dirname, '../../dist'))]
-    })
+
     
     const originAccessIdentity = new OriginAccessIdentity(this, 'OriginAccessIdentity');
     bucket.grantRead(originAccessIdentity);
@@ -36,6 +33,13 @@ export class CdkInfraStack extends cdk.Stack {
         }
       },
     });
+
+    new BucketDeployment(this, 'BucketDeployment', { 
+      destinationBucket: bucket,
+      sources: [Source.asset(path.resolve(__dirname, '../../dist'))],
+      distribution,
+      distributionPaths: ['/*']
+    })
 
   }
 }
