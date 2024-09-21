@@ -10,6 +10,8 @@ e2e-testing:
 
 deploy-prod:
   stage: deploy
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "main"
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   before_script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
