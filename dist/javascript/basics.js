@@ -13,11 +13,11 @@ var firstTime = true
 function myFunction() {
 
     if (firstTime) {
-        document.getElementById("centerImg").src = './images/pages/Sinhala-for-kids-1.jpg';
+        document.getElementById("book-img").src = './images/pages/Sinhala-for-kids-1.jpg';
 
     } else {
     index = getRandomInt(27)
-    document.getElementById("centerImg").src = './images/pages/Sinhala-for-kids-'+index+'.jpg';
+    document.getElementById("book-img").src = './images/pages/Sinhala-for-kids-'+index+'.jpg';
     }
 
 

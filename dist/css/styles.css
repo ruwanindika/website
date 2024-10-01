@@ -1,9 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 h1, p {
   font-family: sans-serif;
 }
 
 .header {
   text-align: center;
+  margin-top: 20px;
 }
 
 .topnav {float: right;}
@@ -20,4 +26,54 @@ h1 {
 
 p {
   text-align: center;
+}
+
+
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline orangered;
+}
+
+.book-img {
+  width: 100%;
+}
+
+article {
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  margin-bottom: 20px;
+}
+
+nav a:link {
+  margin-right: 30px;  
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.next-button {
+  background-color: #4faa04; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.footer_main{
+  text-align: center;
+  padding: 10px;
+  background-color: #ddd;
+}
+
+.book-intro {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
