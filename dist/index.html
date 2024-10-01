@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/text.css">
-    <link rel="stylesheet" type="text/css" href="./css/images.css">
-    <link rel="stylesheet" type="text/css" href="./css/buttons.css">
-    <script type="text/javascript" src="./javascript/basics.js"></script>  
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <script type="text/javascript" src="./javascript/basics.js"></script>
+
     <title>Sinhala for kids</title>
 </head>
 <body>
-    <header><h1>Sinhala for kids !!!</h1></header>
-    <div style="text-align: center">
-        <p>This book introduces the Sinhala alphabet and vocabulary for children, with pronunciations provided in English and Japanese.
-        </p>
-    <p>
-        Book availble on Amazon
-    </p>
-    </div>
-    <br>
-    <div>
-    <img id="centerImg" src="./images/Sinhala-for-kids-cover.1.jpeg" class="center">
-    <br>
-    <button id="myButton" onclick="myFunction()" class="center">Next page</button>
-    <br>
-    <br>
+    <header class="header"><h1>Sinhala for kids</h1>
+    <nav class="topnav">
+        <a href="https://github.com/ruwanindika/website" target="_blank">Code</a>
+        <a href="mailto:sinhalaforkids@gmail.com" >Contact us</a>
+
+    </nav>
+</header>
+<article>
+        <p class="book-intro">This book introduces the Sinhala alphabet and vocabulary for children, with pronunciations provided in English and Japanese.<br><br>
+        <em>Book availble on <a href="https://amzn.asia/d/efWdRLu" target="_blank">Amazon</a></em></p>
+        <img id = "book-img" class="book-img" src="./images/Sinhala-for-kids-cover.1.jpeg" class="center">
+        <br>
+        <button id="next-button" class="next-button" onclick="myFunction()" class="center">Next page</button>
+    </article>
     <footer class="footer_main">Copywrite &copy; 2024 Indika</footer>
-</div>
-</body>
-</html> 
+</html>
