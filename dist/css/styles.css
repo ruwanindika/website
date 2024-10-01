@@ -1,5 +1,23 @@
+h1, p {
+  font-family: sans-serif;
+}
+
 .header {
   text-align: center;
 }
 
 .topnav {float: right;}
+
+
+body {
+  border-top: 10px solid#1098ad;
+}
+
+h1 {
+  color: rgb(54, 131, 45);
+  font-style: italic;
+}
+
+p {
+  text-align: center;
+}
