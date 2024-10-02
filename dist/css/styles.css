@@ -3,6 +3,18 @@
   padding: 0;
 }
 
+.felx-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+}
+
+.book-button {
+}
+
 h1,
 p {
   font-family: sans-serif;
