@@ -6,6 +6,12 @@ build-job:
     - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/" ./dist/index.html
     - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/" ./dist/index.html
     - cat dist/index.html
+    - git config user.email “ruwanindika@gmail.com
+    - git config user.name “gitlab-ci-updater"
+    - git remote add gitlab_origin https://oauth2:$GITLAB_TOKEN@gitlab.com/personal1741534/website.git
+    - git add .
+    - git commit -m "push back from pipeline"
+    - git push gitlab_origin HEAD:main -o ci.skip # prevent triggering pipeline again
 
 e2e-testing:
   stage: test
