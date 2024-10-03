@@ -2,9 +2,9 @@ build-job:
   stage: build
   script:
     - echo "building ..."
-    - pwd
-    - ls
-    # - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/"
+    # - pwd - /builds/personal1741534/website
+    - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/" dist/index.html
+    - cat dist/index.html
 
 e2e-testing:
   stage: test
