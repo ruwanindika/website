@@ -49,7 +49,7 @@ export class CdkInfraStack extends cdk.Stack {
 
     new BucketDeployment(this, "BucketDeployment", {
       destinationBucket: bucket,
-      sources: [Source.asset("../../dist")],
+      sources: [Source.asset("/builds/personal1741534/website/dist")],
       // sources: [Source.asset(path.resolve(__dirname, "../../dist"))],
       distribution,
       distributionPaths: ["/*"],
