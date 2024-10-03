@@ -3,8 +3,8 @@ build-job:
   script:
     - echo "building ..."
     # - pwd - /builds/personal1741534/website
-    - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/" ./dist/index.html
-    - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/" ./dist/index.html
+    - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/" /builds/personal1741534/website/dist/index.html
+    - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/" /builds/personal1741534/website/dist/index.html
     - cat dist/index.html
     # - git config user.email "ruwanindika@gmail.com"
     # - git config user.name "gitlab-ci-updater"
