@@ -3,6 +3,7 @@ build-job:
   script:
     - echo "building ..."
     - pwd
+    - ls
     # - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/"
 
 e2e-testing:
