@@ -1,3 +1,8 @@
+stages:
+  - build_stage
+  - test_stage
+  - deploy_stage
+
 build-job:
   stage: build
   script:
@@ -10,11 +15,10 @@ build-job:
   artifacts:
     paths:
       - /builds/personal1741534/website/*
+    expire_in: 1 day
 
 e2e-testing:
   stage: test
-  dependencies:
-    - build
   script:
     - echo "Testing ... "
     - ls /build/
