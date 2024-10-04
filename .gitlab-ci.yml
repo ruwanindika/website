@@ -9,7 +9,7 @@ build-job:
     - echo $CI_BUILDS_DIR
   artifacts:
     paths:
-      - /builds
+      - $CI_BUILDS_DIR/personal1741534
 
 e2e-testing:
   stage: test
