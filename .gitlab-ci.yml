@@ -13,8 +13,11 @@ build-job:
 
 e2e-testing:
   stage: test
+  dependencies:
+    - build
   script:
     - echo "Testing ... "
+    - ls /build/
 
 deploy-prod:
   stage: deploy
