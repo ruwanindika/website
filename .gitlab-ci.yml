@@ -1,28 +1,33 @@
+---
+stages:
+  - build-job
+  - e2e-testing
+  - deploy-prod
 build-job:
   stage: build
   script:
     - echo "building ..."
-    # - pwd - /builds/personal1741534/website
-    - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/" /builds/personal1741534/website/dist/index.html
-    - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/" /builds/personal1741534/website/dist/index.html
-    # - cat dist/index.html
+    - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/"
+      /builds/personal1741534/website/dist/index.html
+    - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/"
+      /builds/personal1741534/website/dist/index.html
   artifacts:
     - paths:
         - /builds/*
-
 e2e-testing:
   stage: test
   script:
     - echo "Testing ... "
-
 deploy-prod:
   stage: deploy
-  environment: production
+  environment:
+    - name: production
   rules:
     - if: $CI_COMMIT_REF_NAME == "main"
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   before_script:
-    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh |
+      bash
     - source ~/.nvm/nvm.sh
     - nvm install 18
     - npm install aws-cdk@2.0
