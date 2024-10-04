@@ -24,7 +24,7 @@ e2e-testing:
 deploy-prod:
   stage: deploy
   environment:
-    - name: production
+    name: production
   rules:
     - if: $CI_COMMIT_REF_NAME == "main"
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
