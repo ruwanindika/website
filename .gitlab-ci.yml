@@ -9,7 +9,7 @@ build-job:
     - ls $CI_BUILDS_DIR/personal1741534
   artifacts:
     paths:
-      - /builds/personal1741534/website/dist/index.html
+      - /builds/personal1741534/website/*
 
 e2e-testing:
   stage: test
