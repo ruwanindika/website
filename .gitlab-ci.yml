@@ -3,6 +3,7 @@ stages:
   - build-job
   - e2e-testing
   - deploy-prod
+
 build-job:
   stage: build
   script:
@@ -12,12 +13,14 @@ build-job:
     - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/"
       /builds/personal1741534/website/dist/index.html
   artifacts:
-    - paths:
-        - /builds/personal1741534/website/dist/index.html
+    paths:
+      - /builds/
+
 e2e-testing:
   stage: test
   script:
     - echo "Testing ... "
+
 deploy-prod:
   stage: deploy
   environment:
