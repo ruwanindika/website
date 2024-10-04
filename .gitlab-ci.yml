@@ -5,7 +5,7 @@ build-job:
     # - pwd - /builds/personal1741534/website
     - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/" /builds/personal1741534/website/dist/index.html
     - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/" /builds/personal1741534/website/dist/index.html
-    - cat dist/index.html
+    # - cat dist/index.html
   artifacts:
     - paths:
         - /builds/
@@ -17,6 +17,7 @@ e2e-testing:
 
 deploy-prod:
   stage: deploy
+  environment: production
   rules:
     - if: $CI_COMMIT_REF_NAME == "main"
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
@@ -33,4 +34,3 @@ deploy-prod:
     - npm install -g aws-cdk
     - cdk bootstrap
     - cdk deploy --require-approval never
-  environment: production
