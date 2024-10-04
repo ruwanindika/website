@@ -13,7 +13,7 @@ build-job:
       /builds/personal1741534/website/dist/index.html
   artifacts:
     - paths:
-        - builds/
+        - /builds/personal1741534/website/dist/index.html
 e2e-testing:
   stage: test
   script:
