@@ -19,9 +19,26 @@ build-job:
 
 e2e-testing:
   stage: test
+  environment:
+    name: Test
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  before_script:
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh |
+      bash
+    - source ~/.nvm/nvm.sh
+    - nvm install 18
+    - npm install aws-cdk@2.0
+    - npm install aws-cdk-lib
   script:
-    - echo "Testing ... "
-    - cat /builds/personal1741534/website/dist/index.html | grep $CI_COMMIT_SHORT_SHA
+    - echo $CI_COMMIT_REF_NAME
+    - cd cdk-infra
+    - npm -g install typescript
+    - npm install -g aws-cdk
+    - cdk bootstrap
+    - cdk deploy BetaCdkInfraStack --require-approval never
+  # script:
+  #   - echo "Testing ... "
+  # - cat /builds/personal1741534/website/dist/index.html | grep $CI_COMMIT_SHORT_SHA
 
 deploy-prod:
   stage: deploy
@@ -43,4 +60,4 @@ deploy-prod:
     - npm -g install typescript
     - npm install -g aws-cdk
     - cdk bootstrap
-    - cdk deploy --require-approval never
+    - cdk deploy ProdCdkInfraStack --require-approval never

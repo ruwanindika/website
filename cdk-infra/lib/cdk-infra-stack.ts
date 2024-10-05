@@ -37,7 +37,7 @@ export class CdkInfraStack extends cdk.Stack {
           },
         ],
         viewerCertificate: {
-          aliases: [defaults.PROD_URL],
+          aliases: [defaults.PROD_URL, defaults.BETA_URL],
           props: {
             acmCertificateArn:
               "arn:aws:acm:us-east-1:161580273020:certificate/cc7331bc-50a6-4183-b87b-44f568eae2b7",
