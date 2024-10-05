@@ -21,7 +21,7 @@ e2e-testing:
   stage: test
   script:
     - echo "Testing ... "
-    - ls /build/
+    - ls /builds/
 
 deploy-prod:
   stage: deploy
