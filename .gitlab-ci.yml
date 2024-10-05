@@ -21,7 +21,7 @@ e2e-testing:
   stage: test
   script:
     - echo "Testing ... "
-    - ls /builds/
+    - cat /builds/personal1741534/website/dist/index.html
 
 deploy-prod:
   stage: deploy
