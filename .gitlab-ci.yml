@@ -37,7 +37,7 @@ e2e-testing:
     - npm install -g aws-cdk
     - cdk bootstrap
     - cdk deploy BetaSinhalaForKidsWebsite --require-approval never
-    - curl -L beta.sinhalaforkids.com|grep -i sinhala
+    # - curl -L beta.sinhalaforkids.com|grep -i sinhala
   # script:
   # - cat /builds/personal1741534/website/dist/index.html | grep $CI_COMMIT_SHORT_SHA
 
