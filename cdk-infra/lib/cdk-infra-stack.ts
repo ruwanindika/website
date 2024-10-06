@@ -27,10 +27,6 @@ export class CdkInfraStack extends cdk.Stack {
     );
     bucket.grantRead(originAccessIdentity);
 
-    console.log("++++++++++");
-    console.log(props?.deploymentStage);
-    console.log("++++++++++");
-
     const distribution = new CloudFrontWebDistribution(
       this,
       "sinhalaforkidswebsite",
