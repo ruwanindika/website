@@ -36,7 +36,7 @@ e2e-testing:
     - npm -g install typescript
     - npm install -g aws-cdk
     - cdk bootstrap
-    - cdk deploy BetaCdkInfraStack --require-approval never
+    - cdk deploy BetaSinhalaForKidsWebsite --require-approval never
     - curl -L beta.sinhalaforkids.com|grep -i sinhala
   # script:
   # - cat /builds/personal1741534/website/dist/index.html | grep $CI_COMMIT_SHORT_SHA
@@ -61,4 +61,4 @@ deploy-prod:
     - npm -g install typescript
     - npm install -g aws-cdk
     - cdk bootstrap
-    - cdk deploy ProdCdkInfraStack --require-approval never
+    - cdk deploy ProdSinhalaForKidsWebsite --require-approval never
