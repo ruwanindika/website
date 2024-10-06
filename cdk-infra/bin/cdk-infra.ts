@@ -7,7 +7,7 @@ import * as defaults from "../lib/defaults";
 const app = new cdk.App();
 
 // PROD
-new CdkInfraStack(app, "ProdCdkInfraStack", {
+new CdkInfraStack(app, "ProdSinhalaForKidsWebsite", {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
@@ -25,7 +25,7 @@ new CdkInfraStack(app, "ProdCdkInfraStack", {
 });
 
 // BETA
-new CdkInfraStack(app, "BetaCdkInfraStack", {
+new CdkInfraStack(app, "BetaSinhalaForKidsWebsite", {
   env: defaults.BETA_ENV,
   deploymentStage: "beta",
 });
