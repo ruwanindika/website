@@ -40,7 +40,7 @@ export class CdkInfraStack extends cdk.Stack {
           aliases: [defaults.PROD_URL, defaults.BETA_URL],
           props: {
             acmCertificateArn:
-              "arn:aws:acm:us-east-1:161580273020:certificate/cc7331bc-50a6-4183-b87b-44f568eae2b7",
+              "arn:aws:acm:us-east-1:161580273020:certificate/426b4617-2a77-4fc5-85b5-454daff6bd5e",
             sslSupportMethod: "sni-only",
             minimumProtocolVersion: "TLSv1.2_2021",
           },
