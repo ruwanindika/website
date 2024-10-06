@@ -7,9 +7,14 @@ import {
   CloudFrontWebDistribution,
 } from "aws-cdk-lib/aws-cloudfront";
 import * as defaults from "./defaults";
+import * as path from "path";
+
+export interface myStackProps extends cdk.StackProps {
+  deploymentStage: string;
+}
 
 export class CdkInfraStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: myStackProps) {
     super(scope, id, props);
 
     const bucket = new Bucket(this, "Bucket", {
@@ -21,6 +26,10 @@ export class CdkInfraStack extends cdk.Stack {
       "OriginAccessIdentity"
     );
     bucket.grantRead(originAccessIdentity);
+
+    console.log("++++++++++");
+    console.log(props?.deploymentStage);
+    console.log("++++++++++");
 
     const distribution = new CloudFrontWebDistribution(
       this,
@@ -36,7 +45,7 @@ export class CdkInfraStack extends cdk.Stack {
           },
         ],
         viewerCertificate: {
-          aliases: [defaults.PROD_URL, defaults.BETA_URL],
+          aliases: defaults.getEnvInfo(props?.deploymentStage),
           props: {
             acmCertificateArn:
               "arn:aws:acm:us-east-1:161580273020:certificate/426b4617-2a77-4fc5-85b5-454daff6bd5e",
@@ -49,8 +58,8 @@ export class CdkInfraStack extends cdk.Stack {
 
     new BucketDeployment(this, "BucketDeployment", {
       destinationBucket: bucket,
-      sources: [Source.asset("/builds/personal1741534/website/dist")],
-      // sources: [Source.asset(path.resolve(__dirname, "../../dist"))],
+      // sources: [Source.asset("/builds/personal1741534/website/dist")],
+      sources: [Source.asset(path.resolve(__dirname, "../../dist"))],
       distribution,
       distributionPaths: ["/*"],
     });
