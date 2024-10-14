@@ -31,7 +31,9 @@ export class CdkInfraStack extends cdk.Stack {
         zoneName: "sinhalaforkids.com",
       });
       // Enable DNSSEC signing for the zone
-      hostedZone.enableDnssec({ kmsKey });
+      // hostedZone.enableDnssec({ kmsKey });
+      
+      
     }
 
     const bucket = new Bucket(this, "Bucket", {
