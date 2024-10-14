@@ -77,7 +77,7 @@ export class CdkInfraStack extends cdk.Stack {
       // Enable DNSSEC signing for the zone
       // hostedZone.enableDnssec({ kmsKey });
 
-      new ARecord(this, "AliasRecord-sinhalaforkids" + stage, {
+      new ARecord(this, "AliasRecord-sinhalaforkids-" + stage, {
         zone: hostedZone,
         target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
       });
