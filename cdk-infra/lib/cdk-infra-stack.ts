@@ -28,7 +28,7 @@ export class CdkInfraStack extends cdk.Stack {
 
     const originAccessIdentity = new OriginAccessIdentity(
       this,
-      "OriginAccessIdentity",
+      "OriginAccessIdentity"
     );
     bucket.grantRead(originAccessIdentity);
 
@@ -54,7 +54,7 @@ export class CdkInfraStack extends cdk.Stack {
             minimumProtocolVersion: "TLSv1.2_2021",
           },
         },
-      },
+      }
     );
 
     new BucketDeployment(this, "BucketDeployment", {
@@ -65,22 +65,22 @@ export class CdkInfraStack extends cdk.Stack {
       distributionPaths: ["/*"],
     });
 
-    if (stage == "prod") {
-      const kmsKey = new Key(this, "KmsCMK", {
-        keySpec: KeySpec.ECC_NIST_P256,
-        keyUsage: KeyUsage.SIGN_VERIFY,
-      });
+    // if (stage == "prod") {
+    // const kmsKey = new Key(this, "KmsCMK", {
+    //   keySpec: KeySpec.ECC_NIST_P256,
+    //   keyUsage: KeyUsage.SIGN_VERIFY,
+    // });
 
-      const hostedZone = new HostedZone(this, "HostedZone", {
-        zoneName: "sinhalaforkids.com",
-      });
-      // Enable DNSSEC signing for the zone
-      // hostedZone.enableDnssec({ kmsKey });
+    const hostedZone = new HostedZone(this, "HostedZone", {
+      zoneName: "sinhalaforkids.com",
+    });
+    // Enable DNSSEC signing for the zone
+    // hostedZone.enableDnssec({ kmsKey });
+    // }
 
-      new ARecord(this, "AliasRecord-sinhalaforkids-" + stage, {
-        zone: hostedZone,
-        target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
-      });
-    }
+    new ARecord(this, "AliasRecord-sinhalaforkids-" + stage, {
+      zone: hostedZone,
+      target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+    });
   }
 }
