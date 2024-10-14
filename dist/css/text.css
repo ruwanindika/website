@@ -1,11 +1,15 @@
-h1 {text-align: center;
-color: rgb(225, 39, 144);}
+h1 {
+  text-align: center;
+  color: rgb(225, 39, 144);
+}
 
-p {text-align: center;
-font-size: 22px;}
+p {
+  text-align: center;
+  font-size: 22px;
+}
 
-.footer_main{
-    text-align: center;
-    padding: 10px;
-    background-color: #ddd;
+.footer_main {
+  text-align: center;
+  padding: 10px;
+  background-color: #ddd;
 }
