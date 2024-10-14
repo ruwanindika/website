@@ -17,11 +17,15 @@ export interface myStackProps extends cdk.StackProps {
 export class CdkInfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: myStackProps) {
     super(scope, id, props);
+    
+    const stage = props?.deploymentStage;
 
+    if (stage=="prod") {
     const kmsKey = new Key(this, "KmsCMK", {
       keySpec: KeySpec.ECC_NIST_P256,
       keyUsage: KeyUsage.SIGN_VERIFY,
     });
+    }
 
     const bucket = new Bucket(this, "Bucket", {
       accessControl: BucketAccessControl.PRIVATE,
@@ -47,7 +51,7 @@ export class CdkInfraStack extends cdk.Stack {
           },
         ],
         viewerCertificate: {
-          aliases: defaults.getEnvInfo(props?.deploymentStage),
+          aliases: defaults.getEnvInfo(stage),
           props: {
             acmCertificateArn:
               "arn:aws:acm:us-east-1:161580273020:certificate/426b4617-2a77-4fc5-85b5-454daff6bd5e",
