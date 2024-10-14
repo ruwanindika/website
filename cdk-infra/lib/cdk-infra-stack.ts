@@ -3,7 +3,7 @@ import { Construct } from "constructs";
 import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { Key, KeySpec, KeyUsage } from "aws-cdk-lib/aws-kms";
-import { HostedZone } from "aws-cdk-lib/aws-route53";
+import { HostedZone , ARecord, RecordTarget} from "aws-cdk-lib/aws-route53";
 import {
   OriginAccessIdentity,
   CloudFrontWebDistribution,
@@ -21,20 +21,6 @@ export class CdkInfraStack extends cdk.Stack {
 
     const stage = props?.deploymentStage;
 
-    if (stage == "prod") {
-      const kmsKey = new Key(this, "KmsCMK", {
-        keySpec: KeySpec.ECC_NIST_P256,
-        keyUsage: KeyUsage.SIGN_VERIFY,
-      });
-
-      const hostedZone = new HostedZone(this, "HostedZone", {
-        zoneName: "sinhalaforkids.com",
-      });
-      // Enable DNSSEC signing for the zone
-      // hostedZone.enableDnssec({ kmsKey });
-      
-      
-    }
 
     const bucket = new Bucket(this, "Bucket", {
       accessControl: BucketAccessControl.PRIVATE,
@@ -78,5 +64,27 @@ export class CdkInfraStack extends cdk.Stack {
       distribution,
       distributionPaths: ["/*"],
     });
+    
+        if (stage == "prod") {
+      const kmsKey = new Key(this, "KmsCMK", {
+        keySpec: KeySpec.ECC_NIST_P256,
+        keyUsage: KeyUsage.SIGN_VERIFY,
+      });
+
+      const hostedZone = new HostedZone(this, "HostedZone", {
+        zoneName: "sinhalaforkids.com",
+      });
+      // Enable DNSSEC signing for the zone
+      hostedZone.enableDnssec({ kmsKey });
+      
+      // new ARecord(self, "AliasRecord",
+      // hostedZone,
+      // RecordTarget.from_alias(targets.CloudFrontTarget(distribution))
+      // )
+
+    }
+
   }
+  
+  
 }
