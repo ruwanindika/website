@@ -3,13 +3,15 @@ import { Construct } from "constructs";
 import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { Key, KeySpec, KeyUsage } from "aws-cdk-lib/aws-kms";
-import { HostedZone , ARecord, RecordTarget} from "aws-cdk-lib/aws-route53";
+import { HostedZone , ARecord, RecordTarget,} from "aws-cdk-lib/aws-route53";
 import {
   OriginAccessIdentity,
-  CloudFrontWebDistribution,
+  CloudFrontWebDistribution
 } from "aws-cdk-lib/aws-cloudfront";
 import * as defaults from "./defaults";
 import * as path from "path";
+import {CloudFrontTarget} from "aws-cdk-lib/aws-route53-targets";
+
 
 export interface myStackProps extends cdk.StackProps {
   deploymentStage: string;
@@ -65,7 +67,7 @@ export class CdkInfraStack extends cdk.Stack {
       distributionPaths: ["/*"],
     });
     
-        if (stage == "prod") {
+    if (stage == "prod") {
       const kmsKey = new Key(this, "KmsCMK", {
         keySpec: KeySpec.ECC_NIST_P256,
         keyUsage: KeyUsage.SIGN_VERIFY,
@@ -75,12 +77,12 @@ export class CdkInfraStack extends cdk.Stack {
         zoneName: "sinhalaforkids.com",
       });
       // Enable DNSSEC signing for the zone
-      hostedZone.enableDnssec({ kmsKey });
+      // hostedZone.enableDnssec({ kmsKey });
       
-      // new ARecord(self, "AliasRecord",
-      // hostedZone,
-      // RecordTarget.from_alias(targets.CloudFrontTarget(distribution))
-      // )
+    new ARecord(this, "AliasRecord-sinhalaforkids", {
+      zone: hostedZone,
+      target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+    });
 
     }
 
