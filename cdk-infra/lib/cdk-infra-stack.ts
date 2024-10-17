@@ -4,6 +4,7 @@ import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { Key, KeySpec, KeyUsage } from "aws-cdk-lib/aws-kms";
 import { HostedZone, ARecord, RecordTarget } from "aws-cdk-lib/aws-route53";
+import { Repository } from "aws-cdk-lib/aws-ecr";
 import {
   OriginAccessIdentity,
   CloudFrontWebDistribution,
@@ -21,6 +22,11 @@ export class CdkInfraStack extends cdk.Stack {
     super(scope, id, props);
 
     const stage = props?.deploymentStage;
+
+    const repo = new Repository(
+      this,
+      "Container-repo-website-sinhalaforkids.com"
+    );
 
     const bucket = new Bucket(this, "Bucket", {
       accessControl: BucketAccessControl.PRIVATE,
