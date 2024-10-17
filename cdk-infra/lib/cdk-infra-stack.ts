@@ -23,10 +23,7 @@ export class CdkInfraStack extends cdk.Stack {
 
     const stage = props?.deploymentStage;
 
-    const repo = new Repository(
-      this,
-      "Container-repo-website-sinhalaforkids.com"
-    );
+    const repo = new Repository(this, "ecr-repo-sinhalaforkids.com");
 
     const bucket = new Bucket(this, "Bucket", {
       accessControl: BucketAccessControl.PRIVATE,
