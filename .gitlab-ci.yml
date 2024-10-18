@@ -58,7 +58,7 @@ deploy-prod:
   script:
     - echo $CI_COMMIT_REF_NAME
     - cd cdk-infra
-    - npm -g install typescript
-    - npm install -g aws-cdk
+    # - npm -g install typescript
+    # - npm install -g aws-cdk
     - cdk bootstrap
     - cdk deploy ProdSinhalaForKidsWebsite --require-approval never
