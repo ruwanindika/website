@@ -47,14 +47,14 @@ deploy-prod:
     name: production
   rules:
     - if: $CI_COMMIT_REF_NAME == "main"
-  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-  before_script:
-    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh |
-      bash
-    - source ~/.nvm/nvm.sh
-    - nvm install 18
-    - npm install aws-cdk@2.0
-    - npm install aws-cdk-lib
+  image: 161580273020.dkr.ecr.us-east-1.amazonaws.com/prodsinhalaforkidswebsite-ecrreposinhalaforkidscomafd84fb5-w02mvcjhofas:website_ubuntu
+  # before_script:
+  #   - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh |
+  #     bash
+  #   - source ~/.nvm/nvm.sh
+  #   - nvm install 18
+  #   - npm install aws-cdk@2.0
+  #   - npm install aws-cdk-lib
   script:
     - echo $CI_COMMIT_REF_NAME
     - cd cdk-infra
