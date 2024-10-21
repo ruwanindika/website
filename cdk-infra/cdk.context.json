@@ -1,0 +1,10 @@
+{
+  "hosted-zone:account=161580273020:domainName=sinhalaforkids.com:region=us-east-1": {
+    "Id": "/hostedzone/Z00795593NG434SLG2EOV",
+    "Name": "sinhalaforkids.com."
+  },
+  "hosted-zone:account=161580273020:domainName=sinhalaforkids.com:region=ap-southeast-2": {
+    "Id": "/hostedzone/Z00795593NG434SLG2EOV",
+    "Name": "sinhalaforkids.com."
+  }
+}

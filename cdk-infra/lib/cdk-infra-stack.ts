@@ -83,10 +83,10 @@ export class CdkInfraStack extends cdk.Stack {
     //   zoneName: "sinhalaforkids.com",
     // });
 
-    const hostedZone = HostedZone.fromHostedZoneAttributes(
+    const hostedZone = HostedZone.fromLookup(
       this,
       "HostedZone-sinhalaforkids",
-      { zoneName: "sinhalaforkids.com", hostedZoneId: defaults.HOSTED_ZONE_ID },
+      { domainName: "sinhalaforkids.com" },
     );
 
     // Enable DNSSEC signing for the zone
