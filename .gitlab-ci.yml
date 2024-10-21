@@ -3,6 +3,9 @@ stages:
   - test
   - deploy
 
+default:
+  image: registry.gitlab.com/personal1741534/website:latest
+
 build-job:
   stage: build
   script:
@@ -17,27 +20,19 @@ build-job:
       - /builds/personal1741534/website/*
     expire_in: 1h
 
-# e2e-testing:
-#   stage: test
-#   environment:
-#     name: Test
-#   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-#   before_script:
-#     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh |
-#       bash
-#     - source ~/.nvm/nvm.sh
-#     - nvm install 18
-#     - npm install aws-cdk@2.0
-#     - npm install aws-cdk-lib
-#   script:
-#     - echo "Testing ... "
-#     - echo $CI_COMMIT_REF_NAME
-#     - cd cdk-infra
-#     - npm -g install typescript
-#     - npm install -g aws-cdk
-#     - cdk bootstrap
-#     - cdk deploy BetaSinhalaForKidsWebsite --require-approval never
-# - curl -L beta.sinhalaforkids.com|grep -i sinhala
+e2e-testing:
+  stage: test
+  environment:
+    name: Test
+  # image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - echo "Testing ... "
+    - echo $CI_COMMIT_REF_NAME
+    - cd cdk-infra
+    - npm install
+    - cdk bootstrap
+    - cdk deploy BetaSinhalaForKidsWebsite --require-approval never
+    # - curl -L beta.sinhalaforkids.com|grep -i sinhala
 # script:
 # - cat /builds/personal1741534/website/dist/index.html | grep $CI_COMMIT_SHORT_SHA
 
@@ -47,19 +42,10 @@ deploy-prod:
     name: production
   rules:
     - if: $CI_COMMIT_REF_NAME == "main"
-  image: registry.gitlab.com/personal1741534/website:latest
-  # before_script:
-  #   - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh |
-  #     bash
-  #   - source ~/.nvm/nvm.sh
-  #   - nvm install 18
-  #   - npm install aws-cdk@2.0
-  #   - npm install aws-cdk-lib
+  # image: registry.gitlab.com/personal1741534/website:latest
   script:
     - echo $CI_COMMIT_REF_NAME
     - cd cdk-infra
-    # - npm -g install typescript
-    # - npm install -g aws-cdk
     - npm install
     - cdk bootstrap
     - cdk deploy ProdSinhalaForKidsWebsite --require-approval never
