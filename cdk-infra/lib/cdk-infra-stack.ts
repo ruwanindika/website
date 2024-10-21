@@ -96,11 +96,14 @@ export class CdkInfraStack extends cdk.Stack {
     // }
 
     new ARecord(this, "AliasRecord-sinhalaforkids-" + stage, {
+      // sets recordName name sinhalaforkids.com or beta.sinhalaforkids.com 
+      recordName:defaults.getEnvInfo(stage)[0],
       zone: hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
     });
 
     new AaaaRecord(this, "AliasRecord-ipv6-sinhalaforkids-" + stage, {
+      recordName:defaults.getEnvInfo(stage)[0],
       zone: hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
     });
