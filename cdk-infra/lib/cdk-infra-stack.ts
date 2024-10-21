@@ -83,6 +83,8 @@ export class CdkInfraStack extends cdk.Stack {
     //   zoneName: "sinhalaforkids.com",
     // });
 
+    // console.log(this);
+
     const hostedZone = HostedZone.fromLookup(
       this,
       "HostedZone-sinhalaforkids",
