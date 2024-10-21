@@ -1,5 +1,7 @@
 import { arrayBuffer } from "node:stream/consumers";
 
+export const HOSTED_ZONE_ID = "Z00795593NG434SLG2EOV";
+
 export const PROD_URL = "sinhalaforkids.com";
 export const BETA_URL = "beta.sinhalaforkids.com";
 
