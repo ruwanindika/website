@@ -2,9 +2,9 @@ import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
-import { Key, KeySpec, KeyUsage } from "aws-cdk-lib/aws-kms";
+// import { Key, KeySpec, KeyUsage } from "aws-cdk-lib/aws-kms";
 import { HostedZone, ARecord, RecordTarget } from "aws-cdk-lib/aws-route53";
-import { Repository } from "aws-cdk-lib/aws-ecr";
+// import { Repository } from "aws-cdk-lib/aws-ecr";
 import {
   OriginAccessIdentity,
   CloudFrontWebDistribution,
@@ -23,7 +23,7 @@ export class CdkInfraStack extends cdk.Stack {
 
     const stage = props?.deploymentStage;
 
-    const repo = new Repository(this, "ecr-repo-sinhalaforkids.com");
+    // const repo = new Repository(this, "ecr-repo-sinhalaforkids.com");
 
     const bucket = new Bucket(this, "Bucket", {
       accessControl: BucketAccessControl.PRIVATE,
@@ -31,7 +31,7 @@ export class CdkInfraStack extends cdk.Stack {
 
     const originAccessIdentity = new OriginAccessIdentity(
       this,
-      "OriginAccessIdentity"
+      "OriginAccessIdentity",
     );
     bucket.grantRead(originAccessIdentity);
 
@@ -57,7 +57,7 @@ export class CdkInfraStack extends cdk.Stack {
             minimumProtocolVersion: "TLSv1.2_2021",
           },
         },
-      }
+      },
     );
 
     new BucketDeployment(this, "BucketDeployment", {
