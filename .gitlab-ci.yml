@@ -20,8 +20,11 @@ build-job:
       - /builds/personal1741534/website/*
     expire_in: 1h
 
+cdk-testing:
+  stage: cdk-test
+
 e2e-testing:
-  stage: test
+  stage: e2e-test
   environment:
     name: Test
   # image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
