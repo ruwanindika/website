@@ -1,6 +1,7 @@
 stages:
   - build
-  - test
+  - cdk-testing
+  - e2e-testing
   - deploy
 
 default:
@@ -22,9 +23,11 @@ build-job:
 
 cdk-testing:
   stage: cdk-test
+  script:
+    - tsc && npm test
 
 e2e-testing:
-  stage: e2e-test
+  stage: e2e-testing
   environment:
     name: Test
   # image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
