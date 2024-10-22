@@ -22,7 +22,7 @@ build-job:
     expire_in: 1h
 
 cdk-testing:
-  stage: cdk-testing
+  stage: test
   environment:
     name: Test
   script:
@@ -30,7 +30,7 @@ cdk-testing:
     - tsc && npm test
 
 e2e-testing:
-  stage: e2e-testing
+  stage: test
   environment:
     name: Test
   # image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
