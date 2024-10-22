@@ -22,7 +22,7 @@ build-job:
     expire_in: 1h
 
 cdk-testing:
-  stage: cdk-test
+  stage: cdk-testing
   script:
     - tsc && npm test
 
