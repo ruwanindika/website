@@ -23,6 +23,8 @@ build-job:
 
 cdk-testing:
   stage: cdk-testing
+  environment:
+    name: Test
   script:
     - tsc && npm test
 
