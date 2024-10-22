@@ -27,6 +27,7 @@ cdk-testing:
     name: Test
   script:
     - cd cdk-infra
+    - npm install
     - tsc && npm test
 
 e2e-testing:
