@@ -15,8 +15,10 @@ const stack = new CdkInfra.CdkInfraStack(app, "MyTestStack-PROD", {
 
 const template = Template.fromStack(stack);
 
-test("Web site s3 bucket is private", () => {
-  template.hasResourceProperties("AWS::S3::Bucket", {
-    AccessControl: "Private",
+describe("website cdk testsuite", () => {
+  test("Web site s3 bucket is private", () => {
+    template.hasResourceProperties("AWS::S3::Bucket", {
+      AccessControl: "Private",
+    });
   });
 });

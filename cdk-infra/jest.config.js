@@ -1,8 +1,10 @@
-module.exports = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const baseTestDir = "<rootDir>/test/";
+const Config = {
+  preset: "ts-jest",
   testEnvironment: "node",
-  roots: ["<rootDir>/test"],
-  testMatch: ["**/*.test.ts"],
-  transform: {
-    "^.+\\.tsx?$": "ts-jest",
-  },
+  testMatch: [`${baseTestDir}/**/*test.ts`],
 };
+exports.default = Config;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiamVzdC5jb25maWcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJqZXN0LmNvbmZpZy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUVBLE1BQU0sV0FBVyxHQUFHLGlCQUFpQixDQUFDO0FBRXRDLE1BQU0sTUFBTSxHQUEwQjtJQUNwQyxNQUFNLEVBQUUsU0FBUztJQUNqQixlQUFlLEVBQUUsTUFBTTtJQUN2QixTQUFTLEVBQUUsQ0FBQyxHQUFHLFdBQVcsY0FBYyxDQUFDO0NBQzFDLENBQUM7QUFFRixrQkFBZSxNQUFNLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb25maWcgfSBmcm9tIFwiQGplc3QvdHlwZXNcIjtcblxuY29uc3QgYmFzZVRlc3REaXIgPSBcIjxyb290RGlyPi90ZXN0L1wiO1xuXG5jb25zdCBDb25maWc6IENvbmZpZy5Jbml0aWFsT3B0aW9ucyA9IHtcbiAgcHJlc2V0OiBcInRzLWplc3RcIixcbiAgdGVzdEVudmlyb25tZW50OiBcIm5vZGVcIixcbiAgdGVzdE1hdGNoOiBbYCR7YmFzZVRlc3REaXJ9LyoqLyp0ZXN0LnRzYF0sXG59O1xuXG5leHBvcnQgZGVmYXVsdCBDb25maWc7XG4iXX0=
