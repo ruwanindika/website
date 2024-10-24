@@ -1,4 +1,4 @@
-# sinhala for kids website
+# Sinhala for kids website
 
 [sinhalaforkids.com](https://sinhalaforkids.com)
 
