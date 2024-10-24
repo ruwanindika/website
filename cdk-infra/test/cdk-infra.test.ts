@@ -8,24 +8,25 @@ import * as defaults from "../lib/defaults";
 
 // PROD stage testing
 
-let template: Template;
+// beforeAll(() => {
 
-beforeAll(() => {
-  const app = new cdk.App({ outdir: "cdk.out" });
-  const stack = new CdkInfra.CdkInfraStack(app, "MyTestStack-PROD", {
-    env: defaults.PROD_ENV,
-    deploymentStage: "prod",
-  });
-
-  template = Template.fromStack(stack);
-});
-
-
+// });
 
 describe("website cdk testsuite", () => {
-  test("Web site s3 bucket is private", () => {
-    template.hasResourceProperties("AWS::S3::Bucket", {
-      AccessControl: "Private",
-    });
-  });
+  it.each([["prod"], ["beta"]])(
+    "Web site s3 bucket is private - deployment stage: %s",
+    (stage: string) => {
+      const app = new cdk.App({ outdir: "cdk.out" });
+      const stack = new CdkInfra.CdkInfraStack(app, "MyTestStack-PROD", {
+        env: defaults.getEnvStage(stage),
+        deploymentStage: stage,
+      });
+
+      const template = Template.fromStack(stack);
+      
+      template.hasResourceProperties("AWS::S3::Bucket", {
+        AccessControl: "Private",
+      });
+    },
+  );
 });
