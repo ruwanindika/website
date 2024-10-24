@@ -14,6 +14,19 @@ export const BETA_ENV = {
   region: "ap-southeast-2",
 };
 
+export function getStageURL(deploymentStage: any) {
+  let returnValue: any;
+
+  if (deploymentStage == "prod") {
+    returnValue = PROD_URL;
+  } else if (deploymentStage == "beta") {
+    returnValue = BETA_URL;
+  } else {
+    console.log("Stage not found : " + deploymentStage);
+  }
+  return returnValue;
+}
+
 export function getEnvStage(deploymentStage: any) {
   let returnValue: any;
 
