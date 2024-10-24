@@ -29,7 +29,8 @@ cdk-testing:
   script:
     - cd cdk-infra
     - npm install
-    - tsc && npm test
+    - tsc && npm test test/cdk-infra.test.ts -- -stage=beta
+    - tsc && npm test test/cdk-infra.test.ts -- -stage=prod
 
 e2e-testing:
   stage: e2e-testing
