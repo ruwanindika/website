@@ -8,6 +8,7 @@ default:
   image: registry.gitlab.com/personal1741534/website:latest
 
 build-job:
+  image: alpine:latest
   stage: build
   script:
     - echo "building ..."

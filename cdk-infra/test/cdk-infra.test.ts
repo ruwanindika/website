@@ -7,13 +7,20 @@ import * as defaults from "../lib/defaults";
 // example resource in lib/cdk-infra-stack.ts
 
 // PROD stage testing
-const app = new cdk.App();
-const stack = new CdkInfra.CdkInfraStack(app, "MyTestStack-PROD", {
-  env: defaults.PROD_ENV,
-  deploymentStage: "prod",
+
+let template: Template;
+
+beforeAll(() => {
+  const app = new cdk.App({ outdir: "cdk.out" });
+  const stack = new CdkInfra.CdkInfraStack(app, "MyTestStack-PROD", {
+    env: defaults.PROD_ENV,
+    deploymentStage: "prod",
+  });
+
+  template = Template.fromStack(stack);
 });
 
-const template = Template.fromStack(stack);
+
 
 describe("website cdk testsuite", () => {
   test("Web site s3 bucket is private", () => {
