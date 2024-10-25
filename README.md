@@ -9,7 +9,9 @@
 ```
 docker login registry.gitlab.com
 docker build -t registry.gitlab.com/personal1741534/website .
+docker build -t registry.gitlab.com/personal1741534/node .
 docker run -it registry.gitlab.com/personal1741534/alpine:latest /bin/ash
 docker run -it registry.gitlab.com/personal1741534/ubuntu:latest bash
 docker push registry.gitlab.com/personal1741534/website
+docker push registry.gitlab.com/personal1741534/node-custom
 ```

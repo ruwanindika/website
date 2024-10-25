@@ -5,7 +5,7 @@ stages:
   - deploy
 
 default:
-  image: registry.gitlab.com/personal1741534/website:latest
+  image: registry.gitlab.com/personal1741534/website/node-custom:latest
 
 build-job:
   image: alpine:3
