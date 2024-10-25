@@ -1,14 +1,15 @@
 {
   "devDependencies": {
-    "prettier": "3.3.3",    
+    "prettier": "3.3.3",
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0"
   },
-    "scripts": {
+  "scripts": {
     "test": "jest"
-  },  
+  },
   "jest": {
-    "moduleFileExtensions": ["js"]
+    "moduleFileExtensions": [
+      "js"
+    ]
   }
-  
 }
