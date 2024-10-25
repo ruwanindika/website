@@ -6,7 +6,7 @@ FROM node:23-bookworm-slim
 # RUN apt -y install nodejs
 # RUN apt -y install nodejs npm
 # RUN npm install -g aws-cdk@2.0
-# RUN npm -g install typescript
+RUN npm -g install typescript
 RUN npm -g install aws-cdk
 RUN apt update
 RUN apt -y install curl
