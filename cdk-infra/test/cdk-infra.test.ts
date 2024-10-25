@@ -35,4 +35,24 @@ describe("website cdk testsuite - deployment stage:" + stage, () => {
       }),
     );
   });
+
+  test("DNS A record of " + defaults.getStageURL(stage) + " exists", () => {
+    template.hasResourceProperties(
+      "AWS::Route53::RecordSet",
+      Match.objectLike({
+        Name: defaults.getStageURL(stage) + ".",
+        Type: "A",
+      }),
+    );
+  });
+
+  test("DNS AAAA record of " + defaults.getStageURL(stage) + " exists", () => {
+    template.hasResourceProperties(
+      "AWS::Route53::RecordSet",
+      Match.objectLike({
+        Name: defaults.getStageURL(stage) + ".",
+        Type: "AAAA",
+      }),
+    );
+  });
 });
