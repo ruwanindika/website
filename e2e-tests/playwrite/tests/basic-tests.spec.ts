@@ -12,7 +12,7 @@ test("has title", async ({ page }) => {
 });
 
 test("has image", async ({ page }) => {
-  // Expect a title "to contain" a substring.
+  // Expect a page "to contain" an image.
   await expect(page.locator("id=book-img")).toBeVisible();
 });
 
