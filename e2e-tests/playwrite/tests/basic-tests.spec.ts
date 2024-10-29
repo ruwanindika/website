@@ -1,10 +1,17 @@
 import { test, expect } from "@playwright/test";
 
-test("has title", async ({ page }) => {
+test.beforeEach(async ({ page }) => {
   await page.goto("https://sinhalaforkids.com/");
+});
 
+test("has title", async ({ page }) => {
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Sinhala for kids/);
+});
+
+test("has image", async ({ page }) => {
+  // Expect a title "to contain" a substring.
+  await expect(page.locator("id=book-img")).toBeVisible();
 });
 
 // test("get started link", async ({ page }) => {
