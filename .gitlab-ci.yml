@@ -1,9 +1,3 @@
-stages:
-  - build
-  - cdk-testing
-  - e2e-testing
-  - deploy
-
 default:
   image: registry.gitlab.com/personal1741534/website/node-custom:latest
 
@@ -32,8 +26,8 @@ cdk-testing:
     - tsc && npm test test/cdk-infra.test.ts -- -stage=beta
     - tsc && npm test test/cdk-infra.test.ts -- -stage=prod
 
-e2e-testing:
-  stage: e2e-testing
+deploy-beta:
+  stage: bate
   environment:
     name: Test
   # image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
@@ -49,6 +43,14 @@ e2e-testing:
     - curl -L beta.sinhalaforkids.com|grep -i sinhala
 # script:
 # - cat /builds/personal1741534/website/dist/index.html | grep $CI_COMMIT_SHORT_SHA
+
+e2e-testing:
+  image: registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-noble
+  stage: e2e testing
+  script:
+    - echo "Testing ... "
+    - cd e2e-tests/playwrite
+    - npm install
 
 deploy-prod:
   stage: deploy

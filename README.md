@@ -7,11 +7,16 @@
 # Docker commands
 
 ```
+open -a Docker
 docker login registry.gitlab.com
+
 docker build -t registry.gitlab.com/personal1741534/website/node-custom .
+docker build -t registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-noble .
+docker build -t registry.gitlab.com/personal1741534/website/playwrite-node:20-bookworm .
 docker run -it registry.gitlab.com/personal1741534/alpine:latest /bin/ash
 docker run -it registry.gitlab.com/personal1741534/ubuntu:latest bash
 docker push registry.gitlab.com/personal1741534/website/node-custom
+docker push registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-noble
 ```
 
 # JIRA project
