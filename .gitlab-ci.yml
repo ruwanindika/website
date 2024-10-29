@@ -17,7 +17,7 @@ build-job:
     expire_in: 1h
 
 cdk-testing:
-  stage: cdk-testing
+  stage: test
   environment:
     name: Test
   script:
@@ -30,7 +30,6 @@ deploy-beta:
   stage: deploy
   environment:
     name: Test
-  # image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
   script:
     - echo "Testing ... "
     - echo $CI_COMMIT_REF_NAME
@@ -41,8 +40,7 @@ deploy-beta:
     # wait 10s before curl test
     - sleep 10
     - curl -L beta.sinhalaforkids.com|grep -i sinhala
-# script:
-# - cat /builds/personal1741534/website/dist/index.html | grep $CI_COMMIT_SHORT_SHA
+    - curl -L beta.sinhalaforkids.com|grep -i $CI_COMMIT_SHORT_SHA
 
 e2e-testing:
   image: registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-noble
