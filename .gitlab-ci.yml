@@ -34,9 +34,9 @@ deploy-beta:
     - cdk bootstrap
     - cdk deploy BetaSinhalaForKidsWebsite --require-approval never --method=direct
     # wait 10s before curl test
-    - sleep 10
-    - curl -L beta.sinhalaforkids.com|grep -i sinhala
-    - curl -L beta.sinhalaforkids.com|grep -i $CI_COMMIT_SHORT_SHA
+    # - sleep 10
+    # - curl -L beta.sinhalaforkids.com|grep -i sinhala
+    # - curl -L beta.sinhalaforkids.com|grep -i $CI_COMMIT_SHORT_SHA
 
 cdk-testing:
   stage: test
@@ -55,7 +55,7 @@ e2e-testing:
     - echo "playwrite testing ..."
     - cd e2e-tests/playwrite
     - npm install
-    - npx -y playwright test
+    - STAGE=beta npx playwright test
 
 deploy-prod:
   stage: deploy

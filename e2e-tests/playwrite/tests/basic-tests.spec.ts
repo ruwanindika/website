@@ -1,7 +1,9 @@
 import { test, expect } from "@playwright/test";
 
+let deploymentStage = process.env.STAGE || "beta";
+
 test.beforeEach(async ({ page }) => {
-  await page.goto("https://sinhalaforkids.com/");
+  await page.goto("https://" + deploymentStage + ".sinhalaforkids.com/");
 });
 
 test("has title", async ({ page }) => {
