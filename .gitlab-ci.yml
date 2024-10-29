@@ -1,3 +1,9 @@
+stages:
+  - build
+  - staging
+  - test
+  - deploy
+
 default:
   image: registry.gitlab.com/personal1741534/website/node-custom:latest
 
@@ -16,18 +22,8 @@ build-job:
       - /builds/personal1741534/website/*
     expire_in: 1h
 
-cdk-testing:
-  stage: test
-  environment:
-    name: Test
-  script:
-    - cd cdk-infra
-    - npm install
-    - tsc && npm test test/cdk-infra.test.ts -- -stage=beta
-    - tsc && npm test test/cdk-infra.test.ts -- -stage=prod
-
 deploy-beta:
-  stage: deploy
+  stage: staging
   environment:
     name: Test
   script:
@@ -41,6 +37,16 @@ deploy-beta:
     - sleep 10
     - curl -L beta.sinhalaforkids.com|grep -i sinhala
     - curl -L beta.sinhalaforkids.com|grep -i $CI_COMMIT_SHORT_SHA
+
+cdk-testing:
+  stage: test
+  environment:
+    name: Test
+  script:
+    - cd cdk-infra
+    - npm install
+    - tsc && npm test test/cdk-infra.test.ts -- -stage=beta
+    - tsc && npm test test/cdk-infra.test.ts -- -stage=prod
 
 e2e-testing:
   image: registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-noble
