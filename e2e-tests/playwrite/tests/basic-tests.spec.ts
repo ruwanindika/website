@@ -2,8 +2,16 @@ import { test, expect } from "@playwright/test";
 
 const deploymentStage = process.env.STAGE || "beta";
 
+let URL: string;
+
+if (deploymentStage == "beta") {
+  URL = "https://beta.sinhalaforkids.com/";
+} else {
+  URL = "https://sinhalaforkids.com/";
+}
+
 test.beforeEach(async ({ page }) => {
-  await page.goto("https://" + deploymentStage + ".sinhalaforkids.com/");
+  await page.goto(URL);
 });
 
 test("has title", async ({ page }) => {
