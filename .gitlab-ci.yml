@@ -32,7 +32,7 @@ deploy-beta:
     - cd cdk-infra
     - npm install
     - cdk bootstrap
-    - cdk deploy BetaSinhalaForKidsWebsite --require-approval never
+    - cdk deploy BetaSinhalaForKidsWebsite --require-approval never --method=direct
     # wait 10s before curl test
     - sleep 10
     - curl -L beta.sinhalaforkids.com|grep -i sinhala
@@ -64,9 +64,10 @@ deploy-prod:
   rules:
     - if: $CI_COMMIT_REF_NAME == "main"
   # image: registry.gitlab.com/personal1741534/website:latest
+  when: manual
   script:
     - echo $CI_COMMIT_REF_NAME
     - cd cdk-infra
     - npm install
     - cdk bootstrap
-    - cdk deploy ProdSinhalaForKidsWebsite --require-approval never
+    - cdk deploy ProdSinhalaForKidsWebsite --require-approval never --method=direct
