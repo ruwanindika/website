@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-let deploymentStage = process.env.STAGE || "beta";
+const deploymentStage = process.env.STAGE || "beta";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("https://" + deploymentStage + ".sinhalaforkids.com/");
