@@ -3,9 +3,9 @@ default:
 
 e2e-testing:
   image: registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-noble
-  stage: e2e testing
+  stage: test
   script:
-    - echo "playwrite testing ... "
+    - echo "playwrite testing ..."
     - cd e2e-tests/playwrite
     - npm install
     - npx -y playwright test
