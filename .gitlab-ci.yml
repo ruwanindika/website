@@ -54,7 +54,7 @@ e2e-testing:
   stage: test
   script:
     - echo "playwrite testing ..."
-    - cd e2e-tests/playwrite
+    - cd e2e-tests
     - npm ci
     - STAGE=beta npx playwright test
 
