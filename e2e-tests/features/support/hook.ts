@@ -26,3 +26,21 @@ After(async function (scenario) {
     }
     await browser.close();
 });
+
+export const PROD_URL = "sinhalaforkids.com";
+export const BETA_URL = "beta.sinhalaforkids.com";
+
+
+export function getEnvInfo(deploymentStage: any) {
+  let returnValue: string;
+
+if (deploymentStage == "prod") {
+    returnValue = PROD_URL;
+  } else if (deploymentStage == "beta") {
+    returnValue = BETA_URL;
+  } else {
+    console.log("Stage not found : " + deploymentStage);
+  }
+
+  return returnValue;
+}

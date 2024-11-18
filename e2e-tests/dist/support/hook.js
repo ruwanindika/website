@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.page = exports.browser = void 0;
+exports.BETA_URL = exports.PROD_URL = exports.page = exports.browser = void 0;
+exports.getEnvInfo = getEnvInfo;
 const cucumber_1 = require("@cucumber/cucumber");
 const playwright_1 = require("playwright");
 (0, cucumber_1.BeforeAll)({ timeout: 10 * 1000 }, async function () {
@@ -21,3 +22,18 @@ const playwright_1 = require("playwright");
     }
     await exports.browser.close();
 });
+exports.PROD_URL = "sinhalaforkids.com";
+exports.BETA_URL = "beta.sinhalaforkids.com";
+function getEnvInfo(deploymentStage) {
+    let returnValue;
+    if (deploymentStage == "prod") {
+        returnValue = exports.PROD_URL;
+    }
+    else if (deploymentStage == "beta") {
+        returnValue = exports.BETA_URL;
+    }
+    else {
+        console.log("Stage not found : " + deploymentStage);
+    }
+    return returnValue;
+}

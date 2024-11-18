@@ -8,10 +8,13 @@ Given('test one exec', async function () {
 //   const browser = await webkit.launch();
 //   const context = await browser.newContext();
 //   const page = await context.newPage();
-  
+    const stage = process.env.npm_config_stage || "beta";
+
   let page = defaults.page;
   
-  await page.goto('https://sinhalaforkids.com');
+  const url = defaults.getEnvInfo(stage)
+  
+  await page.goto('https:/'+url);
 //   await page.screenshot({ path: 'screenshot.png' });
   const title = await page.title();
   
