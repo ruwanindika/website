@@ -4,7 +4,7 @@ import { chromium, Browser, Page } from "playwright";
 export let browser: Browser;
 export let page: Page;
 
-BeforeAll({ timeout: 10 * 1000 }, async function (this: World) {
+BeforeAll({ timeout: 30 * 1000 }, async function (this: World) {
   browser = await chromium.launch({
     headless: true,
   });
@@ -23,7 +23,6 @@ After(async function (scenario) {
 
     return attach(screenshot, "image/png");
   }
-  await browser.close();
 });
 
 export const PROD_URL = "sinhalaforkids.com";

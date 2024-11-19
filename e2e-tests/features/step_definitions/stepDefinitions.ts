@@ -33,9 +33,32 @@ Given("user navigate to the homepage", async function () {
   await defaults.page.goto("https://" + url);
 });
 
-Then("home page has the title {string}", async function (titleString) {
-  const title = await defaults.page.title();
-  
-  expect(title).toBe(titleString);
-});
+Then(
+  "home page has the {string} {string}",
+  async function (locationString, textString) {
+    if (locationString == "header") {
+      const title = await defaults.page.title();
+      expect(title).toBe(textString);
+    } else if (locationString == "footer") {
+      const locator = defaults.page.locator(".footer-main");
+      await expect(locator).toContainText(textString);
+    } else if (locationString == "button") {
+      const locator = defaults.page.locator(".next-button");
+      await expect(locator).toContainText(textString);
+    } else if (locationString == "image") {
+      const image = defaults.page.locator("img");
+      const src = await image.getAttribute("src");
 
+      expect(src).toBe(textString);
+    }
+  },
+);
+
+Then("home page contains the text", async function (docString) {
+  // Write code here that turns the phrase above into concrete actions
+
+  const locator = defaults.page.locator(".book-intro p");
+  const innerText = await locator.allInnerTexts();
+
+  expect(innerText[0]).toBe(docString);
+});
