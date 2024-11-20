@@ -11,7 +11,7 @@ Feature: Homepage sanity test
     Given user navigate to the homepage
     Then home page has the "button" "Next page"
     
-  Scenario: Home pages button verification
+  Scenario: Home pages image verification
     Given user navigate to the homepage
     Then home page has the "image" "./images/Sinhala-for-kids-cover.1.jpeg"
      
