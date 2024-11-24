@@ -25,23 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const cucumber_1 = require("@cucumber/cucumber");
 const test_1 = require("@playwright/test");
-const { webkit } = require("playwright");
 const defaults = __importStar(require("../support/hook"));
-// let page = defaults.page;
-// Given("test one exec", async function () {
-//   // Write code here that turns the phrase above into concrete actions
-//   //   const browser = await webkit.launch();
-//   //   const context = await browser.newContext();
-//   //   const page = await context.newPage();
-//   const stage = process.env.npm_config_stage || "beta";
-//   let page = defaults.page;
-//   const url = defaults.getEnvInfo(stage);
-//   await page.goto("https:/" + url);
-//   //   await page.screenshot({ path: 'screenshot.png' });
-//   const title = await page.title();
-//   expect(title).toBe("Sinhala for kids");
-//   //   await expect(page).toHaveTitle(/Sinhala for kids/);
-// });
 (0, cucumber_1.Given)("user navigate to the homepage", async function () {
     const stage = process.env.npm_config_stage || "beta";
     const url = defaults.getEnvInfo(stage);
@@ -90,6 +74,4 @@ const defaults = __importStar(require("../support/hook"));
     const image = defaults.page.locator("img");
     this.srcNewImage = await image.getAttribute("src");
     (0, test_1.expect)(this.srcPreviousImage).not.toBe(this.srcNewImage);
-    console.log(this.srcPreviousImage);
-    console.log(this.srcNewImage);
 });
