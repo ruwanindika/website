@@ -50,7 +50,7 @@ When(
   "user click the button with class {string}",
   async function (buttonLocator) {
     // Write code here that turns the phrase above into concrete actions
-    await defaults.page.screenshot({ path: "screenshot.png" });
+    // await defaults.page.screenshot({ path: "screenshot.png" });
     const nextButton = await defaults.page.$("text='Next page'");
     //scroll until the button is visible
     await nextButton.scrollIntoViewIfNeeded();
@@ -64,4 +64,5 @@ Then("image on the homepage will change", async function () {
   this.srcNewImage = await image.getAttribute("src");
 
   expect(this.srcPreviousImage).not.toBe(this.srcNewImage);
+  // await defaults.page.waitForTimeout(3000);
 });

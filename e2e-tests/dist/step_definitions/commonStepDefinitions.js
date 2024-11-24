@@ -63,7 +63,7 @@ const defaults = __importStar(require("../support/hook"));
 });
 (0, cucumber_1.When)("user click the button with class {string}", async function (buttonLocator) {
     // Write code here that turns the phrase above into concrete actions
-    await defaults.page.screenshot({ path: "screenshot.png" });
+    // await defaults.page.screenshot({ path: "screenshot.png" });
     const nextButton = await defaults.page.$("text='Next page'");
     //scroll until the button is visible
     await nextButton.scrollIntoViewIfNeeded();
@@ -74,4 +74,5 @@ const defaults = __importStar(require("../support/hook"));
     const image = defaults.page.locator("img");
     this.srcNewImage = await image.getAttribute("src");
     (0, test_1.expect)(this.srcPreviousImage).not.toBe(this.srcNewImage);
+    // await defaults.page.waitForTimeout(3000);
 });
