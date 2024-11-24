@@ -4,3 +4,9 @@ Feature: Homepage functionality test
     And view the image with  class ".book-img"
     When user click the button with class ".next-button"
     Then image on the homepage will change
+    Given view the image with  class ".book-img"
+    When user click the button with class ".next-button"
+    Then image on the homepage will change
+    Given view the image with  class ".book-img"
+    When user click the button with class ".next-button"
+    Then image on the homepage will change

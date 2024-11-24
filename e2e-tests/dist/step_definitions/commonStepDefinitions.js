@@ -75,19 +75,21 @@ const defaults = __importStar(require("../support/hook"));
 (0, cucumber_1.Given)("view the image with  class {string}", async function (string) {
     // Write code here that turns the phrase above into concrete actions
     const image = defaults.page.locator("img");
-    var srcPreviousImage = await image.getAttribute("src");
-    console.log("---> " + srcPreviousImage);
+    this.srcPreviousImage = await image.getAttribute("src");
 });
 (0, cucumber_1.When)("user click the button with class {string}", async function (buttonLocator) {
     // Write code here that turns the phrase above into concrete actions
-    await defaults.page.locator(buttonLocator).click();
-    const image = defaults.page.locator("img");
-    const src = await image.getAttribute("src");
     await defaults.page.screenshot({ path: "screenshot.png" });
+    const nextButton = await defaults.page.$("text='Next page'");
+    //scroll until the button is visible
+    await nextButton.scrollIntoViewIfNeeded();
+    await nextButton.click();
 });
 (0, cucumber_1.Then)("image on the homepage will change", async function () {
     // Write code here that turns the phrase above into concrete actions
     const image = defaults.page.locator("img");
-    var newPreviousImage = await image.getAttribute("src");
-    console.log("---> " + newPreviousImage);
+    this.srcNewImage = await image.getAttribute("src");
+    (0, test_1.expect)(this.srcPreviousImage).not.toBe(this.srcNewImage);
+    console.log(this.srcPreviousImage);
+    console.log(this.srcNewImage);
 });
