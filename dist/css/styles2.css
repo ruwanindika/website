@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
 header nav{
     /* background-color:aqua; */
     margin: 0;
@@ -15,6 +18,7 @@ header nav ul{
 .main {
     clear: both;
     background-color: yellow;
+    text-align: center;
 }
 
 header nav ul li{
@@ -41,6 +45,34 @@ body{background-color: yellow;}
     display: none;
 }
 
+.nav{
+    clear:both;
+}
+
+.heading {
+    text-align: center;
+    font-size: 3em;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 2;
+    font-style: normal;
+}
+
+body{  
+    font-family: "Roboto Mono", serif;
+    font-optical-sizing: auto;
+    font-weight: 3em;
+    font-style: normal;
+}
+
+header>div{
+    padding: 10px;
+}
+
+article{
+    padding: 10px;
+}
+
 @media all and (max-width:740px){
     header nav ul li{
         display: block;
@@ -57,4 +89,14 @@ body{background-color: yellow;}
         color: black;
         text-align: center;
     }
+
+    .heading{
+        padding: 5px;
+    }
+
+    article{
+        padding: 2px;
+    }
+    
 }
+
