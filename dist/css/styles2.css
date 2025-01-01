@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 
+/* *{
+    box-sizing: border-box;
+} */
+
 header nav{
     /* background-color:aqua; */
     margin: 0;
@@ -74,12 +78,16 @@ header>div{
 
 article{
     padding: 10px;
+    font-size: 1.2em;
+    border-bottom: 5px;
+    overflow: hidden;
+
 }
-
-
 
 main .book-img {
     padding: 10px;
+    max-width: 100%;
+    margin: 5px;
 }
 
 @media all and (max-width:1300px){
@@ -105,6 +113,10 @@ main .book-img {
 
     article{
         padding: 2px;
+    }
+
+    main .book-img{
+        width: 100%;
     }
     
 }
