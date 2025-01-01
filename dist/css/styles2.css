@@ -39,7 +39,10 @@ header nav a:hover{
     color: black;
 }
 
-body{background-color: yellow;}
+body{
+    background-color: yellow;
+    text-align: center;
+}
 
 .menu{
     display: none;
@@ -73,7 +76,13 @@ article{
     padding: 10px;
 }
 
-@media all and (max-width:740px){
+
+
+main .book-img {
+    padding: 10px;
+}
+
+@media all and (max-width:1300px){
     header nav ul li{
         display: block;
         text-align: center;
