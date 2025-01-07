@@ -5,8 +5,26 @@
     box-sizing: border-box;
 }
 
+.hidemenu{
+}
+
+.hide{
+    display: none;
+}
+
+.footer{
+    height: 200px;
+    text-align: center;
+    padding: 30px;
+}
+
+footer::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
 header nav{
-    /* background-color:aqua; */
     margin: 0;
 }
 
@@ -21,7 +39,6 @@ header nav ul{
 
 .main {
     clear: both;
-    /* background-color: yellow; */
     text-align: center;
 }
 
@@ -49,7 +66,12 @@ body{
 }
 
 .menu{
-    display: none;
+    /* display: none; */
+    display: block;
+    padding: 0 10px;
+    font-size: 1em;
+    line-height: 40px;
+    text-decoration: none;
 }
 
 .nav{
@@ -119,8 +141,20 @@ main .book-img {
         padding: 2px;
     }
 
-    main .book-img{
+    main .book-img{ 
         width: 100%;
+    }
+
+    .footer{
+        height: 100px;
+        text-align: center;
+        padding: 10px;
+    }
+
+
+
+    .hide{
+        display: none;
     }
     
 }
