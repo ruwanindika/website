@@ -17,7 +17,7 @@ Then(
       const title = await defaults.page.title();
       expect(title).toBe(textString);
     } else if (locationString == "footer") {
-      const locator = defaults.page.locator(".footer-main");
+      const locator = defaults.page.locator(".footer");
       await expect(locator).toContainText(textString);
     } else if (locationString == "button") {
       const locator = defaults.page.locator(".next-button");
@@ -34,7 +34,7 @@ Then(
 Then("home page contains the text", async function (docString) {
   // Write code here that turns the phrase above into concrete actions
 
-  const locator = defaults.page.locator(".book-intro p");
+  const locator = defaults.page.locator(".main article");
   const innerText = await locator.allInnerTexts();
 
   expect(innerText[0]).toBe(docString);

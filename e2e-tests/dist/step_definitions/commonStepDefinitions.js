@@ -37,7 +37,7 @@ const defaults = __importStar(require("../support/hook"));
         (0, test_1.expect)(title).toBe(textString);
     }
     else if (locationString == "footer") {
-        const locator = defaults.page.locator(".footer-main");
+        const locator = defaults.page.locator(".footer");
         await (0, test_1.expect)(locator).toContainText(textString);
     }
     else if (locationString == "button") {
@@ -52,7 +52,7 @@ const defaults = __importStar(require("../support/hook"));
 });
 (0, cucumber_1.Then)("home page contains the text", async function (docString) {
     // Write code here that turns the phrase above into concrete actions
-    const locator = defaults.page.locator(".book-intro p");
+    const locator = defaults.page.locator(".main article");
     const innerText = await locator.allInnerTexts();
     (0, test_1.expect)(innerText[0]).toBe(docString);
 });
