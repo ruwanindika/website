@@ -5,13 +5,6 @@
     box-sizing: border-box;
 }
 
-.hidemenu{
-}
-
-.hide{
-    display: none;
-}
-
 .footer{
     height: 200px;
     text-align: center;
@@ -66,12 +59,12 @@ body{
 }
 
 .menu{
-    /* display: none; */
-    display: block;
+    display: none;
+    /* display: block;
     padding: 0 10px;
     font-size: 1em;
     line-height: 40px;
-    text-decoration: none;
+    text-decoration: none; */
 }
 
 .nav{
@@ -131,6 +124,10 @@ main .book-img {
         display: block;
         color: black;
         text-align: center;
+    padding: 0 10px;
+    font-size: 1em;
+    line-height: 40px;
+    text-decoration: none;
     }
 
     .heading{
