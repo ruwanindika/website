@@ -1,53 +1,46 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
-    <script type="text/javascript" src="./javascript/basics.js"></script>
-    <title>Sinhala for kids</title>
-  </head>
-  <body>
-    <div class="header-div">
-      <header class="header">
-        <h1 class="h1">Sinhala for kids</h1>
-        <nav class="topnav">
-          <a href="https://github.com/ruwanindika/website" target="_blank"
-            >Code</a
-          >
-          <a href="mailto:sinhalaforkids@gmail.com">Contact us</a>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./css/styles2.css" />
+        <script type="text/javascript" src="./javascript/basics.js"></script>
+        <title>Sinhala for kids</title>
+    </head>
+    <body>
+        <header>
+            <div  class="heading">Sinhala for Kids</div>
+        <nav class="nav">
+                <div class="menu">Menu</div>            
+                <ul class="hidemenu hide">
+                    <li><a href="https://sinhalaforkids.com">Home</a></li>
+                    <li><a href="https://github.com/ruwanindika/website" target="_blank">Code</a></li>
+                    <li><a href="mailto:sinhalaforkids@gmail.com">Contact us</a></li>
+                </ul>
         </nav>
-      </header>
-    </div>
-
-    <article>
-      <div class="felx-container">
-        <div class="book-intro">
-          <p>
-            This book introduces the Sinhala alphabet and vocabulary for
-            children, with pronunciations provided in English and Japanese.
-          </p>
+        </header>
+        <div class="main">
+            <article>
+                This book introduces the Sinhala alphabet and vocabulary for
+                children, with pronunciations provided in English and Japanese.
+            </article>
+            <article>
+                <em
+                >Book availble on
+                <a href="https://amzn.asia/d/efWdRLu" target="_blank"
+                  >Amazon</a
+                ></em
+              >
+            </article>
+            <div class="box box1">
+                <img
+                id="book-img"
+                class="book-img"
+                src="./images/Sinhala-for-kids-cover.1.jpeg"
+                class="center"
+              /> 
+            </div>
         </div>
-        <div class="book-amazon">
-          <p>
-            <em
-              >Book availble on
-              <a href="https://amzn.asia/d/efWdRLu" target="_blank"
-                >Amazon</a
-              ></em
-            >
-          </p>
-        </div>
-        <div class="book-img-div">
-          <img
-            id="book-img"
-            class="book-img"
-            src="./images/Sinhala-for-kids-cover.1.jpeg"
-            class="center"
-          />
-        </div>
-        <div class="book-button">
-          <button
+        <div>
+            <button
             id="next-button"
             class="next-button"
             onclick="myFunction()"
@@ -56,14 +49,9 @@
             Next page
           </button>
         </div>
-      </div>
-    </article>
-    <div class="version-info">
-      <p>Version:</p>
-      <a href="https://github.com/ruwanindika/website/commit/%%VERSIONFULL%%"
-        >%%VERSION%%</a
-      >
-    </div>
-    <footer class="footer-main">Copywrite &copy; 2024 Indika</footer>
-  </body>
+        <footer class="footer">
+            <div class="first">Copywrite &copy; 2024 Indika</div>
+        </footer>
+        <script type="text/javascript" src="./javascript/mobile-menu.js"></script>
+    </body>
 </html>
