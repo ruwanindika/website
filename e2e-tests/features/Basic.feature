@@ -13,7 +13,7 @@ Feature: Homepage sanity test
     
   Scenario: Home pages image verification
     Given user navigate to the homepage
-    Then home page has the "image" "./images/Sinhala-for-kids-cover.1.jpeg"
+    Then home page has the "image" "./images/pages/sinhala-book-papaerback-1.5.1.jpeg"
      
   Scenario: Home pages text verification
     Given user navigate to the homepage
