@@ -7,14 +7,14 @@
 
 var index = 1;
 
-var firstTime = true;
+var firstTime = false;
 
 function myFunction() {
   let prevImageNumber=1;
   
   if (firstTime) {
     document.getElementById("book-img").src =
-      "./images/pages/Sinhala-for-kids-1.jpg";
+      "./images/pages/sinhala-book-papaerback-1.5.1.jpeg";
   } else {
     
     index = getRandomInt(27);
@@ -22,7 +22,7 @@ function myFunction() {
       index = index + 1
     }
     document.getElementById("book-img").src =
-      "./images/pages/Sinhala-for-kids-" + index + ".jpg";
+      "./images/pages/sinhala-book-papaerback-1.5." + index + ".jpeg";
     prevImageNumber = index
   }
 
