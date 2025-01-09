@@ -165,8 +165,8 @@ main .book-img {
       }
       
       .box img {
-        /* width: 100%; */
-        height: 70%;
+        width: 100%;
+        height: 100%;
       }
       
       .box1 img {

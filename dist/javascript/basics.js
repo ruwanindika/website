@@ -7,7 +7,7 @@
 
 var index = 1;
 
-var firstTime = false;
+var firstTime = true;
 
 function myFunction() {
   let prevImageNumber=1;
