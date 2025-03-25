@@ -3,7 +3,7 @@ stages:
   - pre-deployment
   - staging
   - test
-  - cleanup
+  - cleanup-beta
   - deploy
 
 default:
@@ -59,8 +59,9 @@ e2e-testing:
     - npm ci
     - npm run test --stage=beta
     
-cleanup:
-  stage: cleanup
+cleanup-beta:
+  stage: cleanup-beta
+  when: manual
   script: aws cloudformation delete-stack --stack-name BetaSinhalaForKidsWebsite --region ap-southeast-2
     
     
