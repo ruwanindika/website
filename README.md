@@ -9,7 +9,7 @@
 ```
 open -a Docker #for Mac
 
-docker login registry.gitlab.com
+docker login registry.gitlab.com # login is email address
 
 docker build -t registry.gitlab.com/personal1741534/website/node-custom .
 docker build -t registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-noble .
