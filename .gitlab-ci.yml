@@ -57,7 +57,12 @@ e2e-testing:
     - cd e2e-tests
     - npm ci
     - npm run test --stage=beta
-
+    
+cleanup:
+  stage: cleanup
+  script: aws cloudformation delete-stack --stack-name BetaSinhalaForKidsWebsite --region ap-southeast-2
+    
+    
 deploy-prod:
   stage: deploy
   environment:
