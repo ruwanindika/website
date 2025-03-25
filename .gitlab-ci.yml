@@ -3,6 +3,7 @@ stages:
   - pre-deployment
   - staging
   - test
+  - cleanup
   - deploy
 
 default:
