@@ -7,7 +7,8 @@
 # Docker commands
 
 ```
-open -a Docker
+open -a Docker #for Mac
+
 docker login registry.gitlab.com
 
 docker build -t registry.gitlab.com/personal1741534/website/node-custom .
