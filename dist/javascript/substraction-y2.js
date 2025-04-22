@@ -1,5 +1,5 @@
 function mathExampleGen() {
-  const max = 200;
+  const max = 100;
   const objectList1 = [];
   const objectList2 = [];
   const numberOfObjects = 15;
