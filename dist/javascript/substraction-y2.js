@@ -10,11 +10,11 @@ function mathExampleGen() {
   let numTwo2;
 
   for (let i = 0; i < numberOfObjects; i++) {
-    numOne1 = Math.floor(Math.random() * max + 1);
-    numTwo1 = Math.floor(Math.random() * (numOne1 - 1));
+    numOne1 = Math.floor((Math.random() * max)+1);
+    numTwo1 = Math.floor(Math.random() * (numOne1));
 
-    numOne2 = Math.floor(Math.random() * max + 1);
-    numTwo2 = Math.floor(Math.random() * (numOne2 - 1));
+    numOne2 = Math.floor((Math.random() * max) + 1);
+    numTwo2 = Math.floor(Math.random() * (numOne2));
 
     const newObject1 = {
       date: numOne1 + " - " + numTwo1 + " =   _______",
