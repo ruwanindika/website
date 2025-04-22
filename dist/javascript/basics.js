@@ -10,20 +10,19 @@ var index = 1;
 var firstTime = true;
 
 function myFunction() {
-  let prevImageNumber=1;
-  
+  let prevImageNumber = 1;
+
   if (firstTime) {
     document.getElementById("book-img").src =
       "./images/pages/sinhala-book-papaerback-1.5.1.jpeg";
   } else {
-    
     index = getRandomInt(27);
-    if (prevImageNumber==index){
-      index = index + 1
+    if (prevImageNumber == index) {
+      index = index + 1;
     }
     document.getElementById("book-img").src =
       "./images/pages/sinhala-book-papaerback-1.5." + index + ".jpeg";
-    prevImageNumber = index
+    prevImageNumber = index;
   }
 
   firstTime = false;
