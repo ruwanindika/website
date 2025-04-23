@@ -1,30 +1,70 @@
 function mathExampleGen() {
-  const max = 100;
+  // remove all rows of the tables if they are not empty
+  // without this the tables doesn't refresh when  button is pushed
+  if (document.getElementById("myTable") != "null") {
+    var table = document.getElementById("myTable1");
+
+    for (var i = table.rows.length - 1; i > 0; i--) {
+      table.deleteRow(i);
+    }
+
+    var table = document.getElementById("myTable2");
+
+    for (var i = table.rows.length - 1; i > 0; i--) {
+      table.deleteRow(i);
+    }
+  }
+
+  const max = document.getElementById("fname").value;
+  const operation = document.getElementById("Operation").value;
   const objectList1 = [];
   const objectList2 = [];
   const numberOfObjects = 15;
 
-  let numOne1;
-  let numTwo1;
-  let numOne2;
-  let numTwo2;
+  let numOne;
+  let numTwo;
+  let newObject1;
+  let newObject2;
 
   for (let i = 0; i < numberOfObjects; i++) {
-    numOne1 = Math.floor((Math.random() * max)+1);
-    numTwo1 = Math.floor(Math.random() * (numOne1));
+    numOne1 = Math.floor(Math.random() * max);
+    numTwo1 = Math.floor(Math.random() * numOne1);
 
-    numOne2 = Math.floor((Math.random() * max) + 1);
-    numTwo2 = Math.floor(Math.random() * (numOne2));
+    numOne2 = Math.floor(Math.random() * max);
+    numTwo2 = Math.floor(Math.random() * numOne2);
 
-    const newObject1 = {
-      date: numOne1 + " - " + numTwo1 + " =   _______",
-      name: numOne2 + " - " + numTwo2 + " = _______",
-    };
+    if (operation === "addition") {
+      newObject1 = {
+        date: numOne1 + " + " + numTwo1 + " =   _______",
+        name: numOne2 + " + " + numTwo2 + " = _______",
+      };
 
-    const newObject2 = {
-      date: numOne1 + " - " + numTwo1 + "   =   " + (numOne1 - numTwo1),
-      name: numOne2 + " - " + numTwo2 + "   =   " + (numOne2 - numTwo2),
-    };
+      newObject2 = {
+        date: numOne1 + " + " + numTwo1 + "   =   " + (numOne1 + numTwo1),
+        name: numOne2 + " + " + numTwo2 + "   =   " + (numOne2 + numTwo2),
+      };
+    } else if (operation === "substraction") {
+      newObject1 = {
+        date: numOne1 + " - " + numTwo1 + " =   _______",
+        name: numOne2 + " - " + numTwo2 + " = _______",
+      };
+
+      newObject2 = {
+        date: numOne1 + " - " + numTwo1 + "   =   " + (numOne1 - numTwo1),
+        name: numOne2 + " - " + numTwo2 + "   =   " + (numOne2 - numTwo2),
+      };
+    } else {
+      newObject1 = {
+        date: numOne1 + " - " + numTwo1 + " =   _______",
+        name: numOne2 + " - " + numTwo2 + " = _______",
+      };
+
+      newObject2 = {
+        date: numOne1 + " - " + numTwo1 + "   =   " + (numOne1 - numTwo1),
+        name: numOne2 + " - " + numTwo2 + "   =   " + (numOne2 - numTwo2),
+      };
+    }
+
     objectList1.push(newObject1);
     objectList2.push(newObject2);
   }
@@ -44,5 +84,4 @@ function mathExampleGen() {
   }
   loadTableData(items1, "testBody1");
   loadTableData(items2, "testBody2");
-  loadTableData([]);
 }

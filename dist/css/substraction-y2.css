@@ -76,3 +76,20 @@ th,
 td {
   border: 1px solid black;
 }
+
+.controls {
+  margin: auto;
+  width: 50%;
+  border: 5px solid green;
+  padding: 20px;
+}
+
+@media print {
+  #controls {
+    display: none;
+  }
+}
+
+footer {
+  font-size: 12px;
+}
