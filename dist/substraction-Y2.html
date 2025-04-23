@@ -10,18 +10,33 @@
   </head>
   <body onload="mathExampleGen()">
     <div class="controls" id="controls" media="controls">
-      <label for="MAX number">MAX number:</label>
-      <input type="number" id="fname" name="fname" value="100" min="1" />
+      <label for="MAX number" class="controlText">MAX number:</label>
+      <input
+        type="number"
+        id="fname"
+        name="fname"
+        value="100"
+        min="1"
+        class="controlInput"
+      />
 
-      <label for="Operation">Operation</label>
+      <label for="Operation" class="controlText"> Operation </label>
 
-      <select name="Operation" id="Operation">
+      <select name="Operation" id="Operation" class="controlOperation">
         <option value="addition">+</option>
         <option value="substraction" selected>-</option>
       </select>
 
-      <button type="button-gen" onclick="mathExampleGen()">Generate</button>
-      <button type="button-pdf" onclick="window.print()">Print</button>
+      <button
+        type="button-gen"
+        onclick="mathExampleGen()"
+        class="controlButton"
+      >
+        Generate
+      </button>
+      <button type="button-pdf" onclick="window.print()" class="controlButton">
+        Print
+      </button>
     </div>
     <div class="sheet-outer A4" id="questions">
       <section class="sheet padding-5mm">

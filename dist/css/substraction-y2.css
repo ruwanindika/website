@@ -93,3 +93,31 @@ td {
 footer {
   font-size: 12px;
 }
+
+@media all and (max-width: 1300px) {
+  .controls {
+    margin: auto;
+    width: 100%;
+    border: 5px solid green;
+    padding: 20px;
+    font-size: 28px;
+  }
+
+  .controlButton {
+    padding: 15px 15px;
+    font-size: 28px;
+  }
+
+  .controlText {
+    font-size: 28px;
+  }
+
+  .controlOperation {
+    padding: 10px 10px;
+    font-size: 38px;
+  }
+
+  .controlInput {
+    font-size: 28px;
+  }
+}
