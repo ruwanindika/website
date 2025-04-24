@@ -21,48 +21,52 @@ function mathExampleGen() {
   const objectList2 = [];
   const numberOfObjects = 15;
 
-  let numOne;
-  let numTwo;
   let newObject1;
   let newObject2;
 
-  for (let i = 0; i < numberOfObjects; i++) {
+  function mathTextGen(max, operation) {
     numOne1 = Math.floor(Math.random() * max);
-    numTwo1 = Math.floor(Math.random() * numOne1);
 
     numOne2 = Math.floor(Math.random() * max);
-    numTwo2 = Math.floor(Math.random() * numOne2);
 
     if (operation === "addition") {
+      numTwo1 = Math.floor(Math.random() * max);
+      numTwo2 = Math.floor(Math.random() * max);
+
       newObject1 = {
-        date: numOne1 + " + " + numTwo1 + " =   _______",
-        name: numOne2 + " + " + numTwo2 + " = _______",
+        column1: numOne1 + " + " + numTwo1 + " =   _______",
+        column2: numOne2 + " + " + numTwo2 + " = _______",
       };
 
       newObject2 = {
-        date: numOne1 + " + " + numTwo1 + "   =   " + (numOne1 + numTwo1),
-        name: numOne2 + " + " + numTwo2 + "   =   " + (numOne2 + numTwo2),
+        column1: numOne1 + " + " + numTwo1 + "   =   " + (numOne1 + numTwo1),
+        column2: numOne2 + " + " + numTwo2 + "   =   " + (numOne2 + numTwo2),
       };
     } else if (operation === "substraction") {
+      numTwo1 = Math.floor(Math.random() * numOne1);
+      numTwo2 = Math.floor(Math.random() * numOne2);
+
       newObject1 = {
-        date: numOne1 + " - " + numTwo1 + " =   _______",
-        name: numOne2 + " - " + numTwo2 + " = _______",
+        column1: numOne1 + " - " + numTwo1 + " =   _______",
+        column2: numOne2 + " - " + numTwo2 + " = _______",
       };
 
       newObject2 = {
-        date: numOne1 + " - " + numTwo1 + "   =   " + (numOne1 - numTwo1),
-        name: numOne2 + " - " + numTwo2 + "   =   " + (numOne2 - numTwo2),
+        column1: numOne1 + " - " + numTwo1 + "   =   " + (numOne1 - numTwo1),
+        column2: numOne2 + " - " + numTwo2 + "   =   " + (numOne2 - numTwo2),
       };
+    }
+
+    return [newObject1, newObject2];
+  }
+
+  for (let i = 0; i < numberOfObjects; i++) {
+    if (operation === "addition") {
+      [newObject1, newObject2] = mathTextGen(max, "addition");
+    } else if (operation === "substraction") {
+      [newObject1, newObject2] = mathTextGen(max, "substraction");
     } else {
-      newObject1 = {
-        date: numOne1 + " - " + numTwo1 + " =   _______",
-        name: numOne2 + " - " + numTwo2 + " = _______",
-      };
-
-      newObject2 = {
-        date: numOne1 + " - " + numTwo1 + "   =   " + (numOne1 - numTwo1),
-        name: numOne2 + " - " + numTwo2 + "   =   " + (numOne2 - numTwo2),
-      };
+      [newObject1, newObject2] = mathTextGen(max, "substraction");
     }
 
     objectList1.push(newObject1);
@@ -76,10 +80,10 @@ function mathExampleGen() {
     const table = document.getElementById(id);
     items.forEach((item) => {
       let row = table.insertRow();
-      let date = row.insertCell(0);
-      date.innerHTML = item.date;
-      let name = row.insertCell(1);
-      name.innerHTML = item.name;
+      let column1 = row.insertCell(0);
+      column1.innerHTML = item.column1;
+      let column2 = row.insertCell(1);
+      column2.innerHTML = item.column2;
     });
   }
   loadTableData(items1, "testBody1");
