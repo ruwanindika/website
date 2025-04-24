@@ -96,6 +96,10 @@ footer {
 }
 
 @media all and (max-width: 1300px) {
+  .controlsText {
+    font-size: 42px;
+  }
+
   .controls {
     margin: auto;
     width: 100%;
