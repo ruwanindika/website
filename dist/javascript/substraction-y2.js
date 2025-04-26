@@ -55,6 +55,19 @@ function mathExampleGen() {
         column1: numOne1 + " - " + numTwo1 + "   =   " + (numOne1 - numTwo1),
         column2: numOne2 + " - " + numTwo2 + "   =   " + (numOne2 - numTwo2),
       };
+    } else if (operation === "multiplication") {
+      numTwo1 = Math.floor(Math.random() * max);
+      numTwo2 = Math.floor(Math.random() * max);
+
+      newObject1 = {
+        column1: numOne1 + " x " + numTwo1 + " =   _______",
+        column2: numOne2 + " x " + numTwo2 + " = _______",
+      };
+
+      newObject2 = {
+        column1: numOne1 + " x " + numTwo1 + "   =   " + numOne1 * numTwo1,
+        column2: numOne2 + " x " + numTwo2 + "   =   " + numOne2 * numTwo2,
+      };
     }
 
     return [newObject1, newObject2];
@@ -65,6 +78,8 @@ function mathExampleGen() {
       [newObject1, newObject2] = mathTextGen(max, "addition");
     } else if (operation === "substraction") {
       [newObject1, newObject2] = mathTextGen(max, "substraction");
+    } else if (operation === "multiplication") {
+      [newObject1, newObject2] = mathTextGen(max, "multiplication");
     } else {
       [newObject1, newObject2] = mathTextGen(max, "substraction");
     }
@@ -88,4 +103,17 @@ function mathExampleGen() {
   }
   loadTableData(items1, "testBody1");
   loadTableData(items2, "testBody2");
+}
+
+function setDefaultMax() {
+  const operation = document.getElementById("Operation").value;
+  const defaultMax = document.getElementById("fname");
+
+  if (operation === "multiplication") {
+    defaultMax.value = 12;
+  } else if (operation === "addition") {
+    defaultMax.value = 100;
+  } else if (operation === "substraction") {
+    defaultMax.value = 100;
+  }
 }

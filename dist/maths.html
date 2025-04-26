@@ -37,9 +37,15 @@
 
       <label for="Operation" class="controlText"> Operation </label>
 
-      <select name="Operation" id="Operation" class="controlOperation">
-        <option value="addition">+</option>
-        <option value="substraction" selected>-</option>
+      <select
+        name="Operation"
+        id="Operation"
+        class="controlOperation"
+        onchange="setDefaultMax()"
+      >
+        <option value="addition" selected>+</option>
+        <option value="substraction">-</option>
+        <option value="multiplication">x</option>
       </select>
 
       <button
