@@ -26,7 +26,6 @@ function mathExampleGen() {
 
   function mathTextGen(max, operation) {
     numOne1 = Math.floor(Math.random() * max);
-
     numOne2 = Math.floor(Math.random() * max);
 
     if (operation === "addition") {
@@ -68,6 +67,25 @@ function mathExampleGen() {
         column1: numOne1 + " x " + numTwo1 + "   =   " + numOne1 * numTwo1,
         column2: numOne2 + " x " + numTwo2 + "   =   " + numOne2 * numTwo2,
       };
+    } else if (operation === "division") {
+      let numDiv1 = Math.floor(Math.random() * max) + 1;
+      let numDiv2 = Math.floor(Math.random() * max) + 1;
+
+      numOne1 = (Math.floor(Math.random() * max) + 1) * numDiv1;
+      numOne2 = (Math.floor(Math.random() * max) + 1) * numDiv2;
+
+      numTwo1 = numDiv1;
+      numTwo2 = numDiv2;
+
+      newObject1 = {
+        column1: numOne1 + " ÷ " + numTwo1 + " =   _______",
+        column2: numOne2 + " ÷ " + numTwo2 + " = _______",
+      };
+
+      newObject2 = {
+        column1: numOne1 + " ÷ " + numTwo1 + "   =   " + numOne1 / numTwo1,
+        column2: numOne2 + " ÷ " + numTwo2 + "   =   " + numOne2 / numTwo2,
+      };
     }
 
     return [newObject1, newObject2];
@@ -80,6 +98,8 @@ function mathExampleGen() {
       [newObject1, newObject2] = mathTextGen(max, "substraction");
     } else if (operation === "multiplication") {
       [newObject1, newObject2] = mathTextGen(max, "multiplication");
+    } else if (operation === "division") {
+      [newObject1, newObject2] = mathTextGen(max, "division");
     } else {
       [newObject1, newObject2] = mathTextGen(max, "substraction");
     }
@@ -115,5 +135,7 @@ function setDefaultMax() {
     defaultMax.value = 100;
   } else if (operation === "substraction") {
     defaultMax.value = 100;
+  } else if (operation === "division") {
+    defaultMax.value = 12;
   }
 }
