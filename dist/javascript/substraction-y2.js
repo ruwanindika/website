@@ -83,8 +83,8 @@ function mathExampleGen() {
       };
 
       newObject2 = {
-        column1: numOne1 + " ÷ " + numTwo1 + "   =   " + numOne1 / numTwo1,
-        column2: numOne2 + " ÷ " + numTwo2 + "   =   " + numOne2 / numTwo2,
+        column1: numOne1 + "&divide" + numTwo1 + "   =   " + numOne1 / numTwo1,
+        column2: numOne2 + "&divide" + numTwo2 + "   =   " + numOne2 / numTwo2,
       };
     }
 
