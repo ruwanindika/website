@@ -78,8 +78,8 @@ function mathExampleGen() {
       numTwo2 = numDiv2;
 
       newObject1 = {
-        column1: numOne1 + " ÷ " + numTwo1 + " =   _______",
-        column2: numOne2 + " ÷ " + numTwo2 + " = _______",
+        column1: numOne1 + "&divide" + numTwo1 + " =   _______",
+        column2: numOne2 + "&divide" + numTwo2 + " = _______",
       };
 
       newObject2 = {
