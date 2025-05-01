@@ -19,7 +19,7 @@ function mathExampleGen() {
   const operation = document.getElementById("Operation").value;
   const objectList1 = [];
   const objectList2 = [];
-  const numberOfObjects = 15;
+  const numberOfObjects = 14;
 
   let newObject1;
   let newObject2;
