@@ -1,0 +1,26 @@
+{
+  "name": "sinhalafirkids",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "minify-html-1": "html-minifier-terser ../src/sinhalaforkids/index.html --collapse-whitespace --output=../dist/index.html",
+    "minify-html-2": "html-minifier-terser ../src/sinhalaforkids/maths.html --collapse-whitespace --output=../dist/maths.html",
+    "optimize-css-1": "postcss ../src/sinhalaforkids/css/*.css --use autoprefixer cssnano postcss-pxtorem --output ../dist/css/",
+    "build": "npm run minify-html-1 && npm run minify-html-2"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/cli": "^7.27.1",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.1",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.6",
+    "html-minifier-terser": "^7.2.0",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "postcss-pxtorem": "^6.1.0",
+    "uglify-js": "^3.19.3"
+  }
+}

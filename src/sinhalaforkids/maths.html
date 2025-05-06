@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z9G2P9Q992"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z9G2P9Q992");
+    </script>
+    <script type="text/javascript" src="./javascript/maths.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/maths.css" />
+    <title>Maths worksheets k-6</title>
+  </head>
+  <body onload="mathExampleGen()">
+    <div class="controls" id="controls" media="controls">
+      <p class="controlsText">Maths worksheets for k-6</p>
+      <label for="MAX number" class="controlText">MAX number:</label>
+      <input
+        type="number"
+        id="fname"
+        name="fname"
+        value="100"
+        min="1"
+        class="controlInput"
+      />
+
+      <label for="Operation" class="controlText"> Operation </label>
+
+      <select
+        name="Operation"
+        id="Operation"
+        class="controlOperation"
+        onchange="setDefaultMax()"
+      >
+        <option value="addition" selected>+</option>
+        <option value="substraction">-</option>
+        <option value="multiplication">x</option>
+        <option value="division">&divide</option>
+      </select>
+
+      <button
+        type="button-gen"
+        onclick="mathExampleGen()"
+        class="controlButton"
+      >
+        Generate
+      </button>
+      <button type="button-pdf" onclick="window.print()" class="controlButton">
+        Print
+      </button>
+    </div>
+    <div class="sheet-outer A4" id="questions">
+      <section class="sheet padding-5mm">
+        <article>
+          <br />
+          <br />
+          <br />
+          <table id="myTable1" class="center-table">
+            <thead>
+              <tr></tr>
+            </thead>
+            <tbody id="testBody1"></tbody>
+          </table>
+        </article>
+        <footer>sinhalaforkids.com</footer>
+      </section>
+    </div>
+    <div class="sheet-outer A4">
+      <section class="sheet padding-5mm">
+        <article>
+          <br />
+          <br />
+          <br />
+          <table id="myTable2" class="center-table">
+            <thead>
+              <tr></tr>
+            </thead>
+            <tbody id="testBody2"></tbody>
+          </table>
+        </article>
+        <footer>sinhalaforkids.com</footer>
+      </section>
+    </div>
+  </body>
+</html>
