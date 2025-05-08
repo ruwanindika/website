@@ -2,8 +2,6 @@
 
 [sinhalaforkids.com](https://sinhalaforkids.com)
 
-[beta.sinhalaforkids.com](https://beta.sinhalaforkids.com)
-
 # Docker commands
 
 ```
@@ -19,7 +17,3 @@ docker run -it registry.gitlab.com/personal1741534/website/playwrite:v1.48.1-nob
 docker push registry.gitlab.com/personal1741534/website/node-custom
 docker push registry.gitlab.com/personal1741534/website/playwrite-node:20-bookworm
 ```
-
-# JIRA project
-
-[ruwanindika.atlassian.net/browse/SIN](https://ruwanindika.atlassian.net/browse/SIN)
