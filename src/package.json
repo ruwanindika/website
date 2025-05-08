@@ -13,7 +13,7 @@
     "minify-js-3": "uglifyjs ../src/sinhalaforkids/javascript/mobile-menu.js --compress -o ../dist/javascript/mobile-menu.js",
     "images": "cp -r ../src/sinhalaforkids/images/ ../dist/images/",
     "optimize-css": "postcss sinhalaforkids/css/*.css --use autoprefixer cssnano postcss-pxtorem --dir ../dist/css/ --no-map",
-    "build": "npm run minify-html-2 && npm run optimize-css && npm run transpile-js-1 && npm run transpile-js-2 && npm run transpile-js-3 && npm run minify-js-1 && npm run minify-js-2 && npm run minify-js-3 && npm run images"
+    "build": "npm run minify-html-1 && npm run minify-html-2 && npm run optimize-css && npm run transpile-js-1 && npm run transpile-js-2 && npm run transpile-js-3 && npm run minify-js-1 && npm run minify-js-2 && npm run minify-js-3 && npm run images"
   },
   "author": "",
   "license": "ISC",
