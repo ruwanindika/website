@@ -24,12 +24,15 @@ build-website:
     - npm run build
     - cd ..
     - ls
+    - pwd
 
 build-addVersion:
   image: alpine:3
   stage: build2
   script:
     - echo "building ..."
+    - ls
+    - pwd
     - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/"
       /builds/personal1741534/website/dist/index.html
     - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/"
