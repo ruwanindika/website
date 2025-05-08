@@ -22,9 +22,10 @@ build-website:
     - cd src
     - npm install
     - npm run build
-    - cd ..
-    - ls
-    - pwd
+  artifacts:
+    paths:
+      - /builds/personal1741534/website/*
+    expire_in: 1h
 
 build-addVersion:
   image: alpine:3
