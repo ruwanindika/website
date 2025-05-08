@@ -13,7 +13,6 @@ default:
 build-website:
   stage: build1
   script:
-    - npm install
     - mkdir dist
     - cd dist
     - mkdir css
@@ -21,6 +20,7 @@ build-website:
     - mkdir javascript
     - cd ..
     - cd src
+    - npm install
     - npm run build
 
 build-addVersion:
