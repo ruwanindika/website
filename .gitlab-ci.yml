@@ -22,6 +22,8 @@ build-website:
     - cd src
     - npm install
     - npm run build
+    - cd ..
+    - ls
 
 build-addVersion:
   image: alpine:3
