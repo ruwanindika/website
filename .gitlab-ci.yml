@@ -24,7 +24,7 @@ build-website:
     - npm run build
   artifacts:
     paths:
-      - /builds/personal1741534/website/dist/*
+      - /builds/personal1741534/website/*
     expire_in: 1h
 
 build-addVersion:

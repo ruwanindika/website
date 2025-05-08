@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "minify-html-1": "html-minifier-terser ../src/sinhalaforkids/index.html --collapse-whitespace --output=../dist/index.html",
+    "minify-html-1": "cp ../src/sinhalaforkids/index.html ../dist/index.html",
     "minify-html-2": "html-minifier-terser ../src/sinhalaforkids/maths.html --collapse-whitespace --output=../dist/maths.html",
     "transpile-js-1": "babel ../src/sinhalaforkids/javascript/basics.js -o ../dist/javascript/basic.js --presets=@babel/preset-env",
     "transpile-js-2": "babel ../src/sinhalaforkids/javascript/maths.js -o ../dist/javascript/maths.js --presets=@babel/preset-env",
