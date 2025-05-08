@@ -9,7 +9,20 @@ stages:
 default:
   image: registry.gitlab.com/personal1741534/website/node-custom:latest
 
-build-job:
+build-website:
+  stage: build
+  script:
+    - npm install
+    - mkdir dist
+    - cd dist
+    - mkdir css
+    - mkdir images
+    - mkdir javascript
+    - cd ..
+    - cd src
+    - npm run build
+
+build-addVersion:
   image: alpine:3
   stage: build
   script:
