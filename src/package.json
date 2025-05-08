@@ -1,12 +1,19 @@
 {
-  "name": "sinhalafirkids",
+  "name": "sinhalaforkids",
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
     "minify-html-1": "html-minifier-terser ../src/sinhalaforkids/index.html --collapse-whitespace --output=../dist/index.html",
     "minify-html-2": "html-minifier-terser ../src/sinhalaforkids/maths.html --collapse-whitespace --output=../dist/maths.html",
-    "optimize-css-1": "postcss ../src/sinhalaforkids/css/*.css --use autoprefixer cssnano postcss-pxtorem --output ../dist/css/",
-    "build": "npm run minify-html-1 && npm run minify-html-2"
+    "transpile-js-1": "babel ../src/sinhalaforkids/javascript/basics.js -o ../dist/javascript/basic.js --presets=@babel/preset-env",
+    "transpile-js-2": "babel ../src/sinhalaforkids/javascript/maths.js -o ../dist/javascript/maths.js --presets=@babel/preset-env",
+    "transpile-js-3": "babel ../src/sinhalaforkids/javascript/mobile-menu.js -o ../dist/javascript/mobile-menu.js --presets=@babel/preset-env",
+    "minify-js-1": "uglifyjs ../src/sinhalaforkids/javascript/basics.js --compress -o ../dist/javascript/basics.js",
+    "minify-js-2": "uglifyjs ../src/sinhalaforkids/javascript/maths.js --compress -o ../dist/javascript/maths.js",
+    "minify-js-3": "uglifyjs ../src/sinhalaforkids/javascript/mobile-menu.js --compress -o ../dist/javascript/mobile-menu.js",
+    "images": "cp -r ../src/sinhalaforkids/images/ ../dist/images/",
+    "optimize-css": "postcss sinhalaforkids/css/*.css --use autoprefixer cssnano postcss-pxtorem --dir ../dist/css/ --no-map",
+    "build": "npm run minify-html-2 && npm run optimize-css && npm run transpile-js-1 && npm run transpile-js-2 && npm run transpile-js-3 && npm run minify-js-1 && npm run minify-js-2 && npm run minify-js-3 && npm run images"
   },
   "author": "",
   "license": "ISC",
@@ -22,5 +29,6 @@
     "postcss-cli": "^11.0.1",
     "postcss-pxtorem": "^6.1.0",
     "uglify-js": "^3.19.3"
-  }
+  },
+  "dependencies": {}
 }
