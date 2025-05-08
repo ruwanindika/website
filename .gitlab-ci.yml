@@ -24,7 +24,7 @@ build-website:
     - npm run build
   artifacts:
     paths:
-      - /builds/personal1741534/website/*
+      - /builds/personal1741534/website/dist/*
     expire_in: 1h
 
 build-addVersion:
@@ -32,8 +32,8 @@ build-addVersion:
   stage: build2
   script:
     - echo "building ..."
+    - cd dist
     - ls
-    - pwd
     - sed -i "s/%%VERSION%%/$CI_COMMIT_SHORT_SHA/"
       /builds/personal1741534/website/dist/index.html
     - sed -i "s/%%VERSIONFULL%%/$CI_COMMIT_SHA/"
