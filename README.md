@@ -2,7 +2,7 @@
 
 [sinhalaforkids.com](https://sinhalaforkids.com)
 
-!(images/webpage.png)
+![homepage](images/webpage.png)
 
 # Docker commandsopen -a Docker
 
