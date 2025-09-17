@@ -4,7 +4,7 @@
 
 ![homepage](images/webpage.png)
 
-# Docker commandsopen -a Docker
+# Docker commands
 
 ```
 open -a Docker #for Mac
