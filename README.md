@@ -9,6 +9,9 @@
 ```
 open -a Docker #for Mac
 
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+
+
 docker login registry.gitlab.com # login is email address
 
 docker build -t registry.gitlab.com/personal1741534/website/node-custom .

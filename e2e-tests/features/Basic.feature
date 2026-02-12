@@ -1,8 +1,9 @@
 Feature: Homepage sanity test
+
   Scenario: Home pages title verification
     Given user navigate to the homepage
     Then home page has the "title" "Sinhala for kids"
-    
+  
   Scenario: Home pages footer verification
     Given user navigate to the homepage
     Then home page has the "footer" "Copywrite © 2024 Indika"
